@@ -6,779 +6,417 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>SIT CSE 2024 — Semester 4 Result Charts</title>
 <meta name="description" content="SGPA and CGPA results for SIT Tumkur CSE 4th semester, 213 students.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#18122B;
-    --bg2:#120d20;
-    --panel-solid:#231942;
-    --panel:rgba(38,28,70,0.55);
-    --panel-hi:rgba(48,36,88,0.55);
-    --border:rgba(255,255,255,0.09);
-    --border-hi:rgba(255,255,255,0.16);
-    --text:#f4f2fb;
-    --muted:#9a93b8;
-    --muted-dim:#726c92;
-
-    --blue:#3b82f6;
-    --purple:#8b5cf6;
-    --pink:#ec4899;
-    --cyan:#22d3ee;
-    --orange:#f97316;
-    --green:#34d399;
-    --yellow:#eab308;
-    --red:#ef4444;
-
-    --grad-bp:linear-gradient(135deg,var(--blue),var(--purple));
-    --grad-pp:linear-gradient(135deg,var(--purple),var(--pink));
-    --grad-cb:linear-gradient(135deg,var(--cyan),var(--blue));
-    --grad-op:linear-gradient(135deg,var(--orange),var(--pink));
-    --grad-title:linear-gradient(100deg,var(--cyan) 0%,var(--blue) 35%,var(--purple) 65%,var(--pink) 100%);
-
-    --radius-lg:20px;
-    --radius-md:14px;
-    --radius-sm:10px;
-    --shadow-glow:0 0 40px rgba(139,92,246,0.18);
+    --bg:#ffffff;
+    --bg-alt:#f7f8fc;
+    --text:#1a1a1a;
+    --muted:#6b6b6f;
+    --border:#e2e2e5;
+    --accent:#2453d1;
+    --accent-soft:#eaf0fd;
+    --accent2:#d6336c;
+    --accent2-soft:#fdeaf1;
+    --good:#1f8a4c;
+    --bad:#c0392b;
+    --c1:#2453d1;
+    --c2:#d6336c;
+    --c3:#c08a00;
+    --c4:#1f8a4c;
+    --c5:#7c3aed;
+    --c6:#0c9bb0;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
-
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--text);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    line-height:1.45;
+    line-height:1.4;
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(36,83,209,0.14), transparent 40%),
+      radial-gradient(circle at 95% 8%, rgba(214,51,108,0.12), transparent 42%),
+      radial-gradient(circle at 50% 100%, rgba(124,58,237,0.10), transparent 48%),
+      radial-gradient(circle at 100% 100%, rgba(12,155,176,0.10), transparent 40%),
+      linear-gradient(165deg, #f7f9ff 0%, #eef1fb 40%, #eaeffb 70%, #f0f2fa 100%);
+    background-attachment:fixed;
+    background-color:#f2f4f9;
   }
-  ::selection{background:rgba(139,92,246,0.35);color:#fff;}
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:radial-gradient(rgba(30,30,40,0.06) 1px, transparent 1px);
+    background-size:24px 24px;
+    mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 50%, transparent 100%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:36px 20px 48px;position:relative;z-index:1;}
 
-  .mono{font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;}
+  header{margin-bottom:26px;position:relative;padding-left:14px;}
+  header::before{
+    content:"";position:absolute;left:0;top:2px;bottom:6px;width:4px;border-radius:3px;
+    background:linear-gradient(180deg,var(--c1),var(--c2));
+  }
+  h1{font-size:23px;font-weight:700;margin:0 0 5px;letter-spacing:-0.015em;}
+  h1 .accent{color:var(--accent2);}
+  .subtitle{font-size:13.5px;color:var(--muted);}
 
-  /* ---------- Ambient background ---------- */
-  .bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
-      radial-gradient(ellipse 900px 600px at 15% -5%, rgba(59,130,246,0.16), transparent 60%),
-      radial-gradient(ellipse 900px 700px at 100% 10%, rgba(236,72,153,0.13), transparent 55%),
-      radial-gradient(ellipse 800px 800px at 50% 110%, rgba(139,92,246,0.14), transparent 55%),
-      linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
-  }
-  .bg-fx::before{
-    content:"";position:absolute;inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size:42px 42px;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
-  }
-  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.35;animation:drift 22s ease-in-out infinite;}
-  .blob.b1{width:420px;height:420px;background:var(--blue);top:-140px;left:-100px;animation-delay:0s;}
-  .blob.b2{width:380px;height:380px;background:var(--pink);top:10%;right:-140px;animation-delay:-7s;}
-  .blob.b3{width:460px;height:460px;background:var(--purple);bottom:-200px;left:35%;animation-delay:-14s;}
-  @keyframes drift{
-    0%,100%{transform:translate(0,0) scale(1);}
-    50%{transform:translate(30px,-25px) scale(1.08);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .blob{animation:none;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ---------- Layout ---------- */
-  .page{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:48px 24px 60px;}
-
-  /* ---------- Hero ---------- */
-  .hero{text-align:center;padding:12px 0 34px;animation:fadeUp 0.7s ease both;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--muted);
-    padding:6px 14px;border:1px solid var(--border);border-radius:999px;
-    background:var(--panel);backdrop-filter:blur(10px);
-    margin-bottom:18px;
-  }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
-  .hero-title{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:clamp(32px,6vw,56px);
-    line-height:1.08;
-    letter-spacing:-0.02em;
-    margin:0 0 14px;
-  }
-  .grad-text{
-    background:var(--grad-title);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    background-size:200% 100%;
-    animation:shimmer 6s ease-in-out infinite;
-  }
-  @keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
-  .hero-sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 20px;}
-  .hero-meta{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:13px;color:var(--muted-dim);}
-  .hero-meta b{color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:15px;}
-
-  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-
-  /* ---------- Toolbar ---------- */
   .toolbar{
-    display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;
-    margin-bottom:26px;
-    animation:fadeUp 0.7s ease 0.05s both;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    margin:22px 0 18px;
   }
-  .tabs{
-    display:inline-flex;padding:4px;gap:4px;border-radius:14px;
-    background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(10px);
+  .tabs{display:inline-flex;padding:3px;gap:2px;border:1px solid var(--border);border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(20,20,40,0.05);}
+  .tab-btn{
+    appearance:none;border:0;background:transparent;color:var(--muted);
+    padding:7px 18px;font-size:13px;font-weight:600;cursor:pointer;
+    border-radius:7px;
+    transition:background 0.15s ease,color 0.15s ease;
   }
-  .tab{
-    appearance:none;border:0;cursor:pointer;
-    padding:9px 20px;font-size:13px;font-weight:600;
-    border-radius:10px;color:var(--muted);background:transparent;
-    transition:color 0.25s ease, transform 0.15s ease;
-    font-family:inherit;
-    position:relative;
-  }
-  .tab:hover{color:var(--text);}
-  .tab:active{transform:scale(0.97);}
-  .tab.active{color:#fff;}
-  .tab.active[data-key="cgpa"]{background:var(--grad-cb);box-shadow:0 4px 18px rgba(59,130,246,0.35);}
-  .tab.active[data-key="sgpa"]{background:var(--grad-pp);box-shadow:0 4px 18px rgba(236,72,153,0.32);}
-  .tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
+  .tab-btn:hover{color:var(--text);}
+  .tab-btn.active-cgpa{background:var(--c1);color:#fff;}
+  .tab-btn.active-sgpa{background:var(--c2);color:#fff;}
 
-  .search-wrap{
-    position:relative;flex:1 1 260px;max-width:340px;
-  }
-  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:0.55;pointer-events:none;}
   #searchBox{
-    width:100%;
-    padding:11px 14px 11px 40px;
-    border-radius:12px;
+    flex:1 1 220px;
+    max-width:290px;
+    padding:9px 13px;
     border:1px solid var(--border);
-    background:var(--panel);
-    backdrop-filter:blur(10px);
+    border-radius:9px;
+    font-size:13px;
     color:var(--text);
-    font-size:14px;
-    font-family:inherit;
-    transition:border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    background:#fff;
+    box-shadow:0 1px 2px rgba(20,20,40,0.05);
+    transition:border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  #searchBox::placeholder{color:var(--muted-dim);}
-  #searchBox:focus{
-    outline:none;border-color:rgba(139,92,246,0.55);
-    box-shadow:0 0 0 4px rgba(139,92,246,0.16);
-    background:var(--panel-hi);
-  }
-  .kbd-hint{
-    position:absolute;right:10px;top:50%;transform:translateY(-50%);
-    font-size:10px;color:var(--muted-dim);border:1px solid var(--border);
-    border-radius:5px;padding:2px 6px;pointer-events:none;
-  }
+  #searchBox:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
 
-  /* ---------- Stats ---------- */
-  .stats-grid{
-    display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:26px;
-    animation:fadeUp 0.7s ease 0.1s both;
+  .stats-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap:10px;
+    margin-bottom:20px;
   }
   .stat-card{
-    position:relative;border-radius:var(--radius-md);
-    padding:16px 16px 14px;
-    background:var(--panel);border:1px solid var(--border);
-    backdrop-filter:blur(10px);
-    overflow:hidden;
-    transition:transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  }
-  .stat-card::before{
-    content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-    background:var(--stat-grad, var(--grad-bp));
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    opacity:0;transition:opacity 0.25s ease;
-  }
-  .stat-card:hover{transform:translateY(-3px);border-color:transparent;box-shadow:0 10px 30px rgba(20,10,50,0.4);}
-  .stat-card:hover::before{opacity:1;}
-  .stat-label{font-size:10.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted-dim);}
-  .stat-value{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-top:6px;letter-spacing:-0.01em;}
-  .stat-pct{font-size:11px;color:var(--muted);margin-top:3px;font-family:'JetBrains Mono',monospace;}
-
-  /* ---------- Chart panel ---------- */
-  .chart-panel{
-    border-radius:var(--radius-lg);
-    background:var(--panel);
     border:1px solid var(--border);
-    backdrop-filter:blur(14px);
-    box-shadow:var(--shadow-glow), 0 20px 50px rgba(8,4,22,0.45);
-    overflow:hidden;
-    animation:fadeUp 0.7s ease 0.15s both;
+    border-left:3px solid var(--c1);
+    border-radius:9px;
+    padding:10px 12px;
+    background:#fff;
+    box-shadow:0 1px 3px rgba(20,20,40,0.05);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .chart-panel-head{
-    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
-    padding:20px 22px 16px;border-bottom:1px solid var(--border);
-  }
-  .chart-panel-head h2{
-    font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin:0 0 3px;
-  }
-  .chart-sub{margin:0;font-size:12.5px;color:var(--muted-dim);}
-  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);}
-  .legend span{display:inline-flex;align-items:center;gap:6px;}
-  .legend i{width:14px;height:0;border-top:2px dashed currentColor;display:inline-block;}
-  .legend .l-mean{color:var(--cyan);}
-  .legend .l-median{color:var(--purple);}
-  .legend .l-mode{color:var(--orange);}
+  .stat-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,20,40,0.09);}
+  .stat-card:nth-child(1){border-left-color:var(--c4);}
+  .stat-card:nth-child(2){border-left-color:var(--c2);}
+  .stat-card:nth-child(3){border-left-color:var(--c1);}
+  .stat-card:nth-child(4){border-left-color:var(--c5);}
+  .stat-card:nth-child(5){border-left-color:var(--c3);}
+  .stat-card:nth-child(6){border-left-color:var(--c6);}
+  .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
+  .stat-card .value{font-size:17px;font-weight:700;margin-top:2px;}
+  .stat-card .pct{font-size:11px;color:var(--muted);margin-top:1px;}
 
-  .chart-body{display:flex;position:relative;padding:18px 12px 6px 4px;}
-  .axis-col{flex:0 0 auto;width:36px;}
-  .scroll-area{
-    flex:1 1 auto;overflow-x:auto;overflow-y:hidden;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:thin;scrollbar-color:rgba(139,92,246,0.4) transparent;
+  .chart-card{
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(20,20,40,0.07);
+  }
+  .chart-card::before{
+    content:"";display:block;height:3px;
+    background:linear-gradient(90deg,var(--c1),var(--c5),var(--c2));
+  }
+  .chart-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:13px 16px;border-bottom:1px solid var(--border);
+    font-size:12px;color:var(--muted);
+  }
+  .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;}
+  .legend span{display:inline-flex;align-items:center;gap:4px;}
+  .legend i{width:12px;height:2px;display:inline-block;}
+
+  .chart-body{
+    display:flex;
     position:relative;
   }
-  .scroll-area::-webkit-scrollbar{height:8px;}
-  .scroll-area::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.35);border-radius:8px;}
-  .scroll-area::-webkit-scrollbar-track{background:transparent;}
+  .axis{
+    flex:0 0 auto;
+    width:34px;
+    border-right:1px solid var(--border);
+    background:var(--bg);
+    z-index:2;
+  }
+  .scroll-area{
+    flex:1 1 auto;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
   svg{display:block;}
-  .bar{cursor:pointer;transition:filter 0.15s ease, opacity 0.2s ease;}
-  .bar:hover{filter:brightness(1.25) saturate(1.15);}
-  .bar.match{filter:brightness(1.4) saturate(1.3);}
-  .bar.dim{opacity:0.14;}
+  .bar{cursor:pointer;transition:opacity 0.15s ease;}
+  .bar:hover, .bar.match{stroke:#111;stroke-width:1;}
+  .bar.dim{opacity:0.18;}
 
   .hint{
-    font-size:11.5px;color:var(--muted-dim);padding:4px 22px 16px;
+    font-size:11px;color:var(--muted);padding:8px 14px;border-top:1px solid var(--border);
   }
 
-  .mini-nav{
-    position:relative;margin:0 12px 18px;border-radius:12px;overflow:hidden;
-    background:rgba(0,0,0,0.18);border:1px solid var(--border);
-    cursor:pointer;
-  }
-  .mini-nav svg{width:100%;display:block;}
-  .viewport-box{
-    position:absolute;top:0;bottom:0;
-    border:1.5px solid rgba(255,255,255,0.75);
-    background:rgba(255,255,255,0.08);
-    border-radius:6px;
-    pointer-events:none;
-    box-shadow:0 0 0 9999px rgba(10,6,24,0.55);
-    transition:left 0.05s linear, width 0.05s linear;
-  }
-
-  /* ---------- Tooltip ---------- */
   .tooltip{
-    position:fixed;pointer-events:none;
-    background:rgba(20,13,40,0.95);
-    border:1px solid var(--border-hi);
-    color:#fff;font-size:12.5px;
-    padding:10px 13px;border-radius:10px;
-    line-height:1.5;display:none;z-index:50;max-width:230px;
-    backdrop-filter:blur(8px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.5);
-    opacity:0;transform:translateY(4px);
-    transition:opacity 0.12s ease, transform 0.12s ease;
+    position:fixed;
+    pointer-events:none;
+    background:#1a1a1a;
+    color:#fff;
+    font-size:12px;
+    padding:6px 9px;
+    border-radius:6px;
+    line-height:1.35;
+    display:none;
+    z-index:50;
+    max-width:220px;
   }
-  .tooltip.show{display:block;opacity:1;transform:translateY(0);}
-  .tooltip b{font-weight:700;font-family:'Space Grotesk',sans-serif;}
-  .tooltip .tt-usn{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;}
-  .tooltip .tt-val{margin-top:4px;font-family:'JetBrains Mono',monospace;color:var(--cyan);}
+  .tooltip b{font-weight:600;}
 
-  /* ---------- Footer ---------- */
-  footer{
-    margin-top:34px;text-align:center;font-size:12px;color:var(--muted-dim);
-    display:flex;flex-direction:column;gap:6px;align-items:center;
-    animation:fadeUp 0.7s ease 0.2s both;
-  }
-  footer a{color:var(--muted);}
-
-  /* ---------- Focus visibility ---------- */
-  a:focus-visible, button:focus-visible, input:focus-visible{
-    outline:2px solid var(--cyan);outline-offset:2px;
-  }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:900px){
-    .stats-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  @media (max-width:640px){
-    .page{padding:32px 14px 44px;}
-    .stats-grid{grid-template-columns:repeat(2,1fr);gap:9px;}
-    .stat-card{padding:12px 12px 10px;}
-    .stat-value{font-size:19px;}
-    .chart-panel-head{padding:16px 16px 12px;}
-    .legend{gap:10px;}
-    .toolbar{gap:10px;}
-    .search-wrap{max-width:none;flex:1 1 100%;}
-  }
-  @media (max-width:420px){
-    .stats-grid{grid-template-columns:repeat(2,1fr);}
-    .hero-meta{gap:16px;}
+  @media (max-width:520px){
+    h1{font-size:17px;}
+    .subtitle{font-size:12px;}
+    .stat-card .value{font-size:14px;}
   }
 </style>
 </head>
 <body>
 
-<div class="bg-fx">
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-</div>
-
-<div class="page">
-
-  <header class="hero">
-    <span class="eyebrow"><span class="dot"></span> SIT Tumkur · CSE 2024 Batch</span>
-    <h1 class="hero-title">Semester 4 <span class="grad-text">Results</span></h1>
-    <p class="hero-sub">Ranked CGPA &amp; SGPA performance across the entire batch — search any student to see exactly where they stand.</p>
-    <div class="hero-meta">
-      <span><b id="metaCount">213</b> students</span>
-      <span><b id="metaTop">9.95</b> top score</span>
-      <span><b id="metaAvg">8.64</b> batch average</span>
-    </div>
+<div class="wrap">
+  <header>
+    <h1>SIT Tumkur — CSE 2024 Batch, <span class="accent">Semester 4</span> Results</h1>
+    <div class="subtitle">213 students · tap or hover a bar for name, USN, rank and score</div>
   </header>
 
   <div class="toolbar">
-    <div class="tabs" role="tablist" aria-label="Choose metric">
-      <button class="tab active" id="btnCGPA" data-key="cgpa" role="tab" aria-selected="true">CGPA</button>
-      <button class="tab" id="btnSGPA" data-key="sgpa" role="tab" aria-selected="false">SGPA</button>
+    <div class="tabs">
+      <button class="tab-btn" id="btnCGPA">CGPA</button>
+      <button class="tab-btn" id="btnSGPA">SGPA</button>
     </div>
-    <div class="search-wrap">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="searchBox" placeholder="Search a name or USN…" aria-label="Search a name or USN" autocomplete="off">
-      <span class="kbd-hint mono">Ctrl F</span>
-    </div>
+    <input type="text" id="searchBox" placeholder="Search name or USN">
   </div>
 
-  <div class="stats-grid" id="statsGrid"></div>
+  <div class="stats-row" id="statsRow"></div>
 
-  <div class="chart-panel">
-    <div class="chart-panel-head">
-      <div>
-        <h2 id="chartTitle">CGPA — all 213 students</h2>
-        <p class="chart-sub">Ranked best → lowest · hover or tap any bar for exact value, rank &amp; percentage</p>
-      </div>
+  <div class="chart-card">
+    <div class="chart-head">
+      <span id="chartTitle"></span>
       <div class="legend">
-        <span class="l-mean"><i></i>Mean</span>
-        <span class="l-median"><i></i>Median</span>
-        <span class="l-mode"><i></i>Mode</span>
+        <span><i style="background:#2453d1"></i>Mean</span>
+        <span><i style="background:#9333ea"></i>Median</span>
+        <span><i style="background:#c08a00"></i>Mode</span>
       </div>
     </div>
     <div class="chart-body">
-      <div class="axis-col"><svg id="axisSvg" height="320"></svg></div>
+      <div class="axis"><svg id="axisSvg" height="320"></svg></div>
       <div class="scroll-area" id="scrollArea">
         <svg id="chartSvg" height="320"></svg>
       </div>
     </div>
-    <div class="hint">Scroll horizontally, or drag the strip below, to move through all students.</div>
-    <div class="mini-nav" id="miniNav">
-      <svg id="miniSvg" height="46"></svg>
-      <div class="viewport-box" id="viewportBox"></div>
-    </div>
+    <div class="hint">Scroll horizontally to see all 213 students, ranked best to lowest.</div>
   </div>
-
-  <footer>
-    <span>Built for the SIT Tumkur CSE 2024 batch</span>
-    <span class="mono">Semester 4 · Interactive Result Dashboard</span>
-  </footer>
-
 </div>
 
 <div class="tooltip" id="tooltip"></div>
 
 <script>
-/* =========================================================
-   CONFIGURATION
-   ========================================================= */
 const DATA = {"cgpa_records":[{"name":"Devank Ankajakshan Nambiar","usn":"1SI24CS049","gender":"Male","value":9.95,"pct":92.0,"rank":1},{"name":"Chaithanya S","usn":"1SI24CS036","gender":"Female","value":9.88,"pct":91.3,"rank":2},{"name":"Avantika Chaudhary","usn":"1SI24CS024","gender":"Female","value":9.86,"pct":91.1,"rank":3},{"name":"Kavyashree N","usn":"1SI24CS079","gender":"Female","value":9.86,"pct":91.1,"rank":3},{"name":"Prerana M B","usn":"1SI24CS129","gender":"Female","value":9.85,"pct":91.0,"rank":5},{"name":"Pushpalatha B","usn":"1SI24CS134","gender":"Female","value":9.81,"pct":90.6,"rank":6},{"name":"Yashika Arora","usn":"1SI24CS212","gender":"Female","value":9.8,"pct":90.5,"rank":7},{"name":"Sharadhi H N","usn":"1SI24CS162","gender":"Female","value":9.8,"pct":90.5,"rank":7},{"name":"Srushti Mahesh Pattar","usn":"1SI24CS176","gender":"Female","value":9.78,"pct":90.3,"rank":9},{"name":"Sohail Akhtar","usn":"1SI24CS175","gender":"Male","value":9.76,"pct":90.1,"rank":10},{"name":"Amrutha D","usn":"1SI24CS012","gender":"Female","value":9.74,"pct":89.9,"rank":11},{"name":"Anshuman Katoch","usn":"1SI24CS018","gender":"Male","value":9.73,"pct":89.8,"rank":12},{"name":"Richa Jha","usn":"1SI24CS143","gender":"Female","value":9.73,"pct":89.8,"rank":12},{"name":"Vinutha R","usn":"1SI24CS205","gender":"Female","value":9.69,"pct":89.4,"rank":14},{"name":"Ankitha R","usn":"1SI24CS017","gender":"Female","value":9.68,"pct":89.3,"rank":15},{"name":"Kana Vahini","usn":"1SI24CS075","gender":"Female","value":9.68,"pct":89.3,"rank":15},{"name":"Shrinkhala Prasad","usn":"1SI24CS168","gender":"Female","value":9.65,"pct":89.0,"rank":17},{"name":"Supreet .","usn":"1SI24CS179","gender":"Male","value":9.64,"pct":88.9,"rank":18},{"name":"Satyakam Vats","usn":"1SI24CS157","gender":"Male","value":9.63,"pct":88.8,"rank":19},{"name":"Tejas T S","usn":"1SI24CS187","gender":"Male","value":9.61,"pct":88.6,"rank":20},{"name":"Devikarani K","usn":"1SI24CS050","gender":"Female","value":9.61,"pct":88.6,"rank":20},{"name":"Sayondeep Daripa","usn":"1SI24CS159","gender":"Male","value":9.61,"pct":88.6,"rank":20},{"name":"Darshan Somanagouda Konnur","usn":"1SI24CS044","gender":"Male","value":9.59,"pct":88.4,"rank":23},{"name":"Saish Sawant","usn":"1SI24CS149","gender":"Male","value":9.59,"pct":88.4,"rank":23},{"name":"Supriya B S","usn":"1SI24CS181","gender":"Female","value":9.59,"pct":88.4,"rank":23},{"name":"H Y Shivani","usn":"1SI24CS063","gender":"Female","value":9.59,"pct":88.4,"rank":23},{"name":"G R Kusum","usn":"1SI24CS055","gender":"Female","value":9.59,"pct":88.4,"rank":23},{"name":"Kundena Manikumar","usn":"1SI24CS090","gender":"Male","value":9.58,"pct":88.3,"rank":28},{"name":"Shagun .","usn":"1SI24CS160","gender":"Female","value":9.58,"pct":88.3,"rank":28},{"name":"Reethu S","usn":"1SI24CS142","gender":"Female","value":9.56,"pct":88.1,"rank":30},{"name":"Varsha N G","usn":"1SI24CS198","gender":"Female","value":9.56,"pct":88.1,"rank":30},{"name":"Nitin Sharma","usn":"1SI24CS118","gender":"Male","value":9.55,"pct":88.0,"rank":32},{"name":"Ravi Parasappa Hulyal","usn":"1SI24CS140","gender":"Male","value":9.55,"pct":88.0,"rank":32},{"name":"Keerthana R","usn":"1SI24CS080","gender":"Female","value":9.55,"pct":88.0,"rank":32},{"name":"Ananya B S","usn":"1SI24CS015","gender":"Female","value":9.53,"pct":87.8,"rank":35},{"name":"Kiranagouda Venkanagouda Nadamani","usn":"1SI24CS086","gender":"Male","value":9.51,"pct":87.6,"rank":36},{"name":"Sangeeta .","usn":"1SI24CS152","gender":"Female","value":9.5,"pct":87.5,"rank":37},{"name":"Khushi M C","usn":"1SI24CS083","gender":"Female","value":9.5,"pct":87.5,"rank":37},{"name":"Kanchana M H","usn":"1SI24CS076","gender":"Female","value":9.5,"pct":87.5,"rank":37},{"name":"Pratheeksha P","usn":"1SI24CS126","gender":"Female","value":9.49,"pct":87.4,"rank":40},{"name":"Pavan K R","usn":"1SI24CS413","gender":"Male","value":9.46,"pct":87.1,"rank":41},{"name":"Chiranjivi Nayaka A G","usn":"1SI24CS039","gender":"Male","value":9.45,"pct":87.0,"rank":42},{"name":"Pagadala Jahnavi","usn":"1SI24CS121","gender":"Female","value":9.44,"pct":86.9,"rank":43},{"name":"Shreya Shivanand Itagi","usn":"1SI24CS167","gender":"Female","value":9.4,"pct":86.5,"rank":44},{"name":"Nagamma V","usn":"1SI24CS108","gender":"Female","value":9.4,"pct":86.5,"rank":44},{"name":"Aditya Pramod Patil","usn":"1SI24CS007","gender":"Male","value":9.4,"pct":86.5,"rank":44},{"name":"Gaganashree K","usn":"1SI24CS057","gender":"Female","value":9.4,"pct":86.5,"rank":44},{"name":"Mukundan P","usn":"1SI24CS106","gender":"Male","value":9.39,"pct":86.4,"rank":48},{"name":"Saroj Ghosh","usn":"1SI24CS155","gender":"Male","value":9.39,"pct":86.4,"rank":48},{"name":"Shubhankar Raj","usn":"1SI24CS171","gender":"Male","value":9.38,"pct":86.3,"rank":50},{"name":"Kishan G C","usn":"1SI24CS087","gender":"Male","value":9.38,"pct":86.3,"rank":50},{"name":"Aditya Kumar","usn":"1SI24CS006","gender":"Male","value":9.36,"pct":86.1,"rank":52},{"name":"Munnur Someshwar","usn":"1SI24CS107","gender":"Male","value":9.36,"pct":86.1,"rank":52},{"name":"Namitha K","usn":"1SI24CS112","gender":"Female","value":9.36,"pct":86.1,"rank":52},{"name":"Karthik S","usn":"1SI24CS077","gender":"Male","value":9.35,"pct":86.0,"rank":55},{"name":"Khutijal Kubra K","usn":"1SI24CS084","gender":"Female","value":9.35,"pct":86.0,"rank":55},{"name":"Bhumika B R","usn":"1SI24CS034","gender":"Female","value":9.34,"pct":85.9,"rank":57},{"name":"Amulya Billemane M S","usn":"1SI24CS013","gender":"Female","value":9.34,"pct":85.9,"rank":57},{"name":"Thanushree S","usn":"1SI24CS192","gender":"Female","value":9.33,"pct":85.8,"rank":59},{"name":"Ankit Kumar","usn":"1SI24CS016","gender":"Male","value":9.32,"pct":85.7,"rank":60},{"name":"Darshan K M","usn":"1SI24CS043","gender":"Male","value":9.31,"pct":85.6,"rank":61},{"name":"Nongthombam Sanathoi Singh","usn":"1SI24CS120","gender":"Male","value":9.3,"pct":85.5,"rank":62},{"name":"Kavin G","usn":"1SI24CS078","gender":"Male","value":9.29,"pct":85.4,"rank":63},{"name":"Tejesh C","usn":"1SI24CS189","gender":"Male","value":9.26,"pct":85.1,"rank":64},{"name":"Nagasamprathi N","usn":"1SI24CS110","gender":"Female","value":9.26,"pct":85.1,"rank":64},{"name":"Amogh V Hathwar","usn":"1SI24CS011","gender":"Male","value":9.24,"pct":84.9,"rank":66},{"name":"Disha R","usn":"1SI24CS053","gender":"Female","value":9.21,"pct":84.6,"rank":67},{"name":"D S Lavanya","usn":"1SI24CS041","gender":"Female","value":9.21,"pct":84.6,"rank":67},{"name":"Gnanavi S U","usn":"1SI24CS059","gender":"Female","value":9.2,"pct":84.5,"rank":69},{"name":"B Jagadeshwar Reddy","usn":"1SI24CS028","gender":"Male","value":9.2,"pct":84.5,"rank":69},{"name":"Dhanush S","usn":"1SI24CS052","gender":"Male","value":9.2,"pct":84.5,"rank":69},{"name":"Prajwal Sangappa Katageri","usn":"1SI24CS124","gender":"Male","value":9.19,"pct":84.4,"rank":72},{"name":"S Kapil Jain","usn":"1SI24CS146","gender":"Male","value":9.18,"pct":84.3,"rank":73},{"name":"Anusha Patil","usn":"1SI24CS020","gender":"Female","value":9.18,"pct":84.3,"rank":73},{"name":"Debadatta Ray","usn":"1SI24CS045","gender":"Male","value":9.16,"pct":84.1,"rank":75},{"name":"Jubilee .","usn":"1SI24CS071","gender":"Female","value":9.15,"pct":84.0,"rank":76},{"name":"Babul Kumar","usn":"1SI24CS029","gender":"Male","value":9.14,"pct":83.9,"rank":77},{"name":"Punith N S","usn":"1SI24CS133","gender":"Male","value":9.11,"pct":83.6,"rank":78},{"name":"Amulya P","usn":"1SI24CS400","gender":"Female","value":9.11,"pct":83.6,"rank":78},{"name":"Aadil Majeed","usn":"1SI24CS001","gender":"Male","value":9.09,"pct":83.4,"rank":80},{"name":"Sandesh Lakshman Borakar","usn":"1SI24CS150","gender":"Male","value":9.06,"pct":83.1,"rank":81},{"name":"Raghav T L","usn":"1SI24CS414","gender":"Male","value":9.06,"pct":83.1,"rank":81},{"name":"Badagi Lokamurthy","usn":"1SI24CS030","gender":"Male","value":9.05,"pct":83.0,"rank":83},{"name":"Ayush Kumar Singh","usn":"1SI24CS026","gender":"Male","value":9.05,"pct":83.0,"rank":83},{"name":"G Chinmai","usn":"1SI24CS054","gender":"Male","value":9.05,"pct":83.0,"rank":83},{"name":"Thilak K R","usn":"1SI24CS193","gender":"Male","value":9.05,"pct":83.0,"rank":83},{"name":"Rabiya Nida","usn":"1SI24CS135","gender":"Female","value":9.05,"pct":83.0,"rank":83},{"name":"Trisha Roshan","usn":"1SI24CS195","gender":"Female","value":9.05,"pct":83.0,"rank":83},{"name":"Nitya Jain","usn":"1SI24CS119","gender":"Female","value":9.04,"pct":82.9,"rank":89},{"name":"Sayan Kumar","usn":"1SI24CS158","gender":"Male","value":9.03,"pct":82.8,"rank":90},{"name":"Preetham A K","usn":"1SI24CS128","gender":"Male","value":9.03,"pct":82.8,"rank":90},{"name":"Geeta Siddappa Saunshi","usn":"1SI24CS058","gender":"Female","value":9.0,"pct":82.5,"rank":92},{"name":"Ayush Agrawal","usn":"1SI24CS025","gender":"Male","value":8.99,"pct":82.4,"rank":93},{"name":"Rakshitha B","usn":"1SI24CS137","gender":"Female","value":8.96,"pct":82.1,"rank":94},{"name":"Monish K C","usn":"1SI24CS103","gender":"Male","value":8.95,"pct":82.0,"rank":95},{"name":"Abhinav Raj","usn":"1SI24CS004","gender":"Male","value":8.95,"pct":82.0,"rank":95},{"name":"Aryan Kumar Gupta","usn":"1SI24CS023","gender":"Male","value":8.95,"pct":82.0,"rank":95},{"name":"Pooja M","usn":"1SI24CS122","gender":"Female","value":8.94,"pct":81.9,"rank":98},{"name":"Hemashree Dn","usn":"1SI24CS069","gender":"Female","value":8.93,"pct":81.8,"rank":99},{"name":"Anant Singh","usn":"1SI24CS014","gender":"Male","value":8.92,"pct":81.7,"rank":100},{"name":"Prathiksha H","usn":"1SI24CS127","gender":"Female","value":8.92,"pct":81.7,"rank":100},{"name":"Shrisha M","usn":"1SI24CS169","gender":"Female","value":8.91,"pct":81.6,"rank":102},{"name":"Manish Kumar V K","usn":"1SI24CS096","gender":"Male","value":8.91,"pct":81.6,"rank":102},{"name":"Shobha G","usn":"1SI24CS165","gender":"Female","value":8.91,"pct":81.6,"rank":102},{"name":"Nanditha L M","usn":"1SI24CS113","gender":"Female","value":8.89,"pct":81.4,"rank":105},{"name":"Snehalatha .","usn":"1SI24CS174","gender":"Female","value":8.89,"pct":81.4,"rank":105},{"name":"Reddy Rahul Reddy","usn":"1SI24CS141","gender":"Male","value":8.86,"pct":81.1,"rank":107},{"name":"Rudranarayan Satapathy","usn":"1SI24CS145","gender":"Male","value":8.85,"pct":81.0,"rank":108},{"name":"Aishwarya T","usn":"1SI24CS009","gender":"Female","value":8.81,"pct":80.6,"rank":109},{"name":"Vivek Gowda B","usn":"1SI24CS208","gender":"Male","value":8.8,"pct":80.5,"rank":110},{"name":"Vishal Kumar Tiwary","usn":"1SI24CS207","gender":"Male","value":8.8,"pct":80.5,"rank":110},{"name":"G V Nithya Sree","usn":"1SI24CS056","gender":"Female","value":8.79,"pct":80.4,"rank":112},{"name":"Madhurya R","usn":"1SI24CS094","gender":"Female","value":8.79,"pct":80.4,"rank":112},{"name":"Vikas Sharma","usn":"1SI24CS203","gender":"Male","value":8.78,"pct":80.3,"rank":114},{"name":"Apoorva Bhandari","usn":"1SI24CS021","gender":"Female","value":8.78,"pct":80.3,"rank":114},{"name":"Adarsh Raj","usn":"1SI24CS005","gender":"Male","value":8.76,"pct":80.1,"rank":116},{"name":"Aditya Sharma","usn":"1SI24CS008","gender":"Male","value":8.74,"pct":79.9,"rank":117},{"name":"Deepak Purohit","usn":"1SI24CS046","gender":"Male","value":8.73,"pct":79.8,"rank":118},{"name":"K Chandra Shekar Reddy","usn":"1SI24CS074","gender":"Male","value":8.69,"pct":79.4,"rank":119},{"name":"Shiven Kumar","usn":"1SI24CS164","gender":"Male","value":8.69,"pct":79.4,"rank":119},{"name":"Jatin Raj","usn":"1SI24CS070","gender":"Male","value":8.68,"pct":79.3,"rank":121},{"name":"Vedanth J S","usn":"1SI24CS200","gender":"Male","value":8.66,"pct":79.1,"rank":122},{"name":"Shubham Patil","usn":"1SI24CS170","gender":"Male","value":8.66,"pct":79.1,"rank":122},{"name":"Suyash Pandey","usn":"1SI24CS184","gender":"Male","value":8.66,"pct":79.1,"rank":122},{"name":"Rahul Dadimana Kshetri","usn":"1SI24CS136","gender":"Male","value":8.64,"pct":78.9,"rank":125},{"name":"Lokesh .","usn":"1SI24CS093","gender":"Male","value":8.64,"pct":78.9,"rank":125},{"name":"Sangamesh Beerappa Konkani","usn":"1SI24CS151","gender":"Male","value":8.61,"pct":78.6,"rank":127},{"name":"Sahil More","usn":"1SI24CS148","gender":"Male","value":8.6,"pct":78.5,"rank":128},{"name":"Thanuja S","usn":"1SI24CS190","gender":"Female","value":8.58,"pct":78.3,"rank":129},{"name":"Dada Kalandar","usn":"1SI24CS042","gender":"Male","value":8.56,"pct":78.1,"rank":130},{"name":"Gowri S P","usn":"1SI24CS061","gender":"Female","value":8.56,"pct":78.1,"rank":130},{"name":"Mohini Babasaheb Awate","usn":"1SI24CS410","gender":"Female","value":8.55,"pct":78.0,"rank":132},{"name":"Nehal Shetty D S","usn":"1SI24CS115","gender":"Female","value":8.55,"pct":78.0,"rank":132},{"name":"Dhanush Mr","usn":"1SI24CS051","gender":"Male","value":8.54,"pct":77.9,"rank":134},{"name":"Kethari Mokshith Reddy","usn":"1SI24CS081","gender":"Male","value":8.5,"pct":77.5,"rank":135},{"name":"Pruthviraj Patil","usn":"1SI24CS132","gender":"Male","value":8.5,"pct":77.5,"rank":135},{"name":"Vidya R","usn":"1SI24CS201","gender":"Female","value":8.49,"pct":77.4,"rank":137},{"name":"Harshitha .","usn":"1SI24CS405","gender":"Female","value":8.44,"pct":76.9,"rank":138},{"name":"K Basavaraju","usn":"1SI24CS073","gender":"Male","value":8.41,"pct":76.6,"rank":139},{"name":"Manojna S","usn":"1SI24CS098","gender":"Female","value":8.39,"pct":76.4,"rank":140},{"name":"Khade Soham Rajendra","usn":"1SI24CS082","gender":"Male","value":8.38,"pct":76.3,"rank":141},{"name":"More Rutuja","usn":"1SI24CS104","gender":"Female","value":8.38,"pct":76.3,"rank":141},{"name":"Rishav Kashyap","usn":"1SI24CS144","gender":"Male","value":8.36,"pct":76.1,"rank":143},{"name":"Nithyashree P L","usn":"1SI24CS412","gender":"Female","value":8.34,"pct":75.9,"rank":144},{"name":"Shamitha H S","usn":"1SI24CS161","gender":"Female","value":8.31,"pct":75.6,"rank":145},{"name":"Supritha S T","usn":"1SI24CS180","gender":"Female","value":8.29,"pct":75.4,"rank":146},{"name":"Sanjay H D","usn":"1SI24CS154","gender":"Male","value":8.28,"pct":75.3,"rank":147},{"name":"Harshit Raj","usn":"1SI24CS065","gender":"Male","value":8.26,"pct":75.1,"rank":148},{"name":"Mohit Dhakad","usn":"1SI24CS101","gender":"Male","value":8.25,"pct":75.0,"rank":149},{"name":"Vaishnavi Raviraj Kumbhar","usn":"1SI24CS416","gender":"Female","value":8.24,"pct":74.9,"rank":150},{"name":"Vinay K N","usn":"1SI24CS417","gender":"Male","value":8.21,"pct":74.6,"rank":151},{"name":"Sadiq Barakatali Kolakar","usn":"1SI24CS147","gender":"Male","value":8.21,"pct":74.6,"rank":151},{"name":"H Ruchitha Reddy","usn":"1SI24CS062","gender":"Female","value":8.2,"pct":74.5,"rank":153},{"name":"Narendra Kumar Yadav","usn":"1SI24CS114","gender":"Male","value":8.19,"pct":74.4,"rank":154},{"name":"Chirag P","usn":"1SI24CS038","gender":"Male","value":8.19,"pct":74.4,"rank":154},{"name":"Modithya R","usn":"1SI24CS099","gender":"Male","value":8.15,"pct":74.0,"rank":156},{"name":"Kavana H P","usn":"1SI24CS409","gender":"Female","value":8.14,"pct":73.9,"rank":157},{"name":"Darshan G M","usn":"1SI24CS404","gender":"Male","value":8.11,"pct":73.6,"rank":158},{"name":"Nagshankre Ashish Shivaraj","usn":"1SI24CS111","gender":"Male","value":8.09,"pct":73.4,"rank":159},{"name":"Kunal Vardiya","usn":"1SI24CS089","gender":"Male","value":8.09,"pct":73.4,"rank":159},{"name":"Skarma Lamo","usn":"1SI24CS172","gender":"Female","value":8.08,"pct":73.3,"rank":161},{"name":"Smitha G P","usn":"1SI24CS173","gender":"Female","value":8.06,"pct":73.1,"rank":162},{"name":"Tanishq Gautam","usn":"1SI24CS186","gender":"Male","value":8.05,"pct":73.0,"rank":163},{"name":"Tejaswini B M","usn":"1SI24CS188","gender":"Female","value":8.04,"pct":72.9,"rank":164},{"name":"Arnav Singh","usn":"1SI24CS022","gender":"Male","value":8.04,"pct":72.9,"rank":164},{"name":"Charan B S","usn":"1SI24CS037","gender":"Male","value":7.98,"pct":72.3,"rank":166},{"name":"Honnushree B M","usn":"1SI24CS406","gender":"Female","value":7.98,"pct":72.3,"rank":166},{"name":"Srushti Siddaram Balulagidad","usn":"1SI24CS177","gender":"Female","value":7.98,"pct":72.3,"rank":166},{"name":"Sushanth A","usn":"1SI24CS182","gender":"Male","value":7.96,"pct":72.1,"rank":169},{"name":"Hemanth Swamy C O","usn":"1SI24CS068","gender":"Male","value":7.89,"pct":71.4,"rank":170},{"name":"Gowri B V","usn":"1SI24CS060","gender":"Female","value":7.88,"pct":71.3,"rank":171},{"name":"Susmitha Samvardhini L","usn":"1SI24CS183","gender":"Female","value":7.86,"pct":71.1,"rank":172},{"name":"Chiranth B V","usn":"1SI24CS040","gender":"Male","value":7.84,"pct":70.9,"rank":173},{"name":"Abdullah Saad Sharief","usn":"1SI24CS003","gender":"Male","value":7.84,"pct":70.9,"rank":173},{"name":"Tushar A Kumar","usn":"1SI24CS196","gender":"Male","value":7.81,"pct":70.6,"rank":175},{"name":"Harsh Kumar Singh","usn":"1SI24CS064","gender":"Male","value":7.81,"pct":70.6,"rank":175},{"name":"Vikas .","usn":"1SI24CS202","gender":"Male","value":7.76,"pct":70.1,"rank":177},{"name":"Chinmayi T M","usn":"1SI24CS403","gender":"Female","value":7.71,"pct":69.6,"rank":178},{"name":"Anurag A Aralimarad","usn":"1SI24CS019","gender":"Male","value":7.7,"pct":69.5,"rank":179},{"name":"Ankit S Nidavani","usn":"1SI24CS401","gender":"Male","value":7.69,"pct":69.4,"rank":180},{"name":"Sharadhi N","usn":"1SI24CS163","gender":"Female","value":7.65,"pct":69.0,"rank":181},{"name":"Nagesh Kumar P","usn":"1SI24CS411","gender":"Male","value":7.63,"pct":68.8,"rank":182},{"name":"Nisarga M","usn":"1SI24CS117","gender":"Female","value":7.61,"pct":68.6,"rank":183},{"name":"Muhammad Ayaan Atiq","usn":"1SI24CS105","gender":"Male","value":7.6,"pct":68.5,"rank":184},{"name":"Deepankar Raj","usn":"1SI24CS047","gender":"Male","value":7.54,"pct":67.9,"rank":185},{"name":"Yashaswini A","usn":"1SI24CS211","gender":"Female","value":7.52,"pct":67.7,"rank":186},{"name":"Kalekar Samarth Shashikant","usn":"1SI24CS408","gender":"Male","value":7.43,"pct":66.8,"rank":187},{"name":"Badri Vishal","usn":"1SI24CS031","gender":"Male","value":7.41,"pct":66.6,"rank":188},{"name":"Prerit Shekhar","usn":"1SI24CS130","gender":"Male","value":7.39,"pct":66.4,"rank":189},{"name":"Bhanu S R","usn":"1SI24CS032","gender":"Female","value":7.38,"pct":66.3,"rank":190},{"name":"Tanay Kumar","usn":"1SI24CS185","gender":"Male","value":7.34,"pct":65.9,"rank":191},{"name":"Havyas Dore","usn":"1SI24CS067","gender":"Male","value":7.33,"pct":65.8,"rank":192},{"name":"Sanjana V Rangarer","usn":"1SI24CS153","gender":"Female","value":7.24,"pct":64.9,"rank":193},{"name":"Rakshitha R","usn":"1SI24CS138","gender":"Female","value":7.13,"pct":63.8,"rank":194},{"name":"Shreshta T P","usn":"1SI24CS166","gender":"Female","value":7.1,"pct":63.5,"rank":195},{"name":"Bhagyashree .","usn":"1SI24CS402","gender":"Female","value":7.09,"pct":63.4,"rank":196},{"name":"B Bhuvan Gowda","usn":"1SI24CS027","gender":"Male","value":7.04,"pct":62.9,"rank":197},{"name":"Nimit Mishra","usn":"1SI24CS116","gender":"Male","value":7.04,"pct":62.9,"rank":197},{"name":"Varun M D","usn":"1SI24CS199","gender":"Male","value":6.97,"pct":62.2,"rank":199},{"name":"Rakshitha S","usn":"1SI24CS139","gender":"Female","value":6.95,"pct":62.0,"rank":200},{"name":"Pragna M J","usn":"1SI24CS123","gender":"Female","value":6.9,"pct":61.5,"rank":201},{"name":"Harshitha M C","usn":"1SI24CS066","gender":"Female","value":6.89,"pct":61.4,"rank":202},{"name":"Tomthilnganba Soraisham","usn":"1SI24CS194","gender":"Male","value":6.83,"pct":60.8,"rank":203},{"name":"Suma K S","usn":"1SI24CS415","gender":"Female","value":6.82,"pct":60.7,"rank":204},{"name":"Uday N P","usn":"1SI24CS197","gender":"Male","value":6.72,"pct":59.7,"rank":205},{"name":"Junaid Shariff","usn":"1SI24CS072","gender":"Male","value":6.7,"pct":59.5,"rank":206},{"name":"Thanushree P","usn":"1SI24CS191","gender":"Female","value":6.5,"pct":57.5,"rank":207},{"name":"Lohith Kumar K","usn":"1SI24CS092","gender":"Male","value":6.49,"pct":57.4,"rank":208},{"name":"Manoj H J","usn":"1SI24CS097","gender":"Male","value":6.39,"pct":56.4,"rank":209},{"name":"Aadyantha G Nadig","usn":"1SI24CS002","gender":"Male","value":6.27,"pct":55.2,"rank":210},{"name":"Vinay V A","usn":"1SI24CS204","gender":"Male","value":6.27,"pct":55.2,"rank":210},{"name":"Kruthi R","usn":"1SI24CS088","gender":"Female","value":6.24,"pct":54.9,"rank":212},{"name":"Aishwarya V","usn":"1SI24CS010","gender":"Female","value":6.19,"pct":54.4,"rank":213}],"sgpa_records":[{"name":"Devank Ankajakshan Nambiar","usn":"1SI24CS049","gender":"Male","value":9.95,"pct":92.0,"rank":1},{"name":"Sharadhi H N","usn":"1SI24CS162","gender":"Female","value":9.95,"pct":92.0,"rank":1},{"name":"Vinutha R","usn":"1SI24CS205","gender":"Female","value":9.95,"pct":92.0,"rank":1},{"name":"Khushi M C","usn":"1SI24CS083","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Chaithanya S","usn":"1SI24CS036","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Keerthana R","usn":"1SI24CS080","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Satyakam Vats","usn":"1SI24CS157","gender":"Male","value":9.8,"pct":90.5,"rank":4},{"name":"Shubhankar Raj","usn":"1SI24CS171","gender":"Male","value":9.8,"pct":90.5,"rank":4},{"name":"Sayondeep Daripa","usn":"1SI24CS159","gender":"Male","value":9.8,"pct":90.5,"rank":4},{"name":"Shagun .","usn":"1SI24CS160","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Kundena Manikumar","usn":"1SI24CS090","gender":"Male","value":9.8,"pct":90.5,"rank":4},{"name":"Yashika Arora","usn":"1SI24CS212","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Shrinkhala Prasad","usn":"1SI24CS168","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Richa Jha","usn":"1SI24CS143","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Anshuman Katoch","usn":"1SI24CS018","gender":"Male","value":9.8,"pct":90.5,"rank":4},{"name":"Avantika Chaudhary","usn":"1SI24CS024","gender":"Female","value":9.8,"pct":90.5,"rank":4},{"name":"Chiranjivi Nayaka A G","usn":"1SI24CS039","gender":"Male","value":9.75,"pct":90.0,"rank":17},{"name":"Srushti Mahesh Pattar","usn":"1SI24CS176","gender":"Female","value":9.75,"pct":90.0,"rank":17},{"name":"Sohail Akhtar","usn":"1SI24CS175","gender":"Male","value":9.75,"pct":90.0,"rank":17},{"name":"Kavyashree N","usn":"1SI24CS079","gender":"Female","value":9.75,"pct":90.0,"rank":17},{"name":"Darshan Somanagouda Konnur","usn":"1SI24CS044","gender":"Male","value":9.75,"pct":90.0,"rank":17},{"name":"Pratheeksha P","usn":"1SI24CS126","gender":"Female","value":9.75,"pct":90.0,"rank":17},{"name":"Sangeeta .","usn":"1SI24CS152","gender":"Female","value":9.75,"pct":90.0,"rank":17},{"name":"Prerana M B","usn":"1SI24CS129","gender":"Female","value":9.75,"pct":90.0,"rank":17},{"name":"Devikarani K","usn":"1SI24CS050","gender":"Female","value":9.7,"pct":89.5,"rank":25},{"name":"G R Kusum","usn":"1SI24CS055","gender":"Female","value":9.65,"pct":89.0,"rank":26},{"name":"Amrutha D","usn":"1SI24CS012","gender":"Female","value":9.65,"pct":89.0,"rank":26},{"name":"Pushpalatha B","usn":"1SI24CS134","gender":"Female","value":9.6,"pct":88.5,"rank":28},{"name":"H Y Shivani","usn":"1SI24CS063","gender":"Female","value":9.6,"pct":88.5,"rank":28},{"name":"Kanchana M H","usn":"1SI24CS076","gender":"Female","value":9.6,"pct":88.5,"rank":28},{"name":"Ananya B S","usn":"1SI24CS015","gender":"Female","value":9.6,"pct":88.5,"rank":28},{"name":"Ravi Parasappa Hulyal","usn":"1SI24CS140","gender":"Male","value":9.6,"pct":88.5,"rank":28},{"name":"Supriya B S","usn":"1SI24CS181","gender":"Female","value":9.6,"pct":88.5,"rank":28},{"name":"Saish Sawant","usn":"1SI24CS149","gender":"Male","value":9.6,"pct":88.5,"rank":28},{"name":"Nitin Sharma","usn":"1SI24CS118","gender":"Male","value":9.6,"pct":88.5,"rank":28},{"name":"Supreet .","usn":"1SI24CS179","gender":"Male","value":9.6,"pct":88.5,"rank":28},{"name":"Amulya Billemane M S","usn":"1SI24CS013","gender":"Female","value":9.55,"pct":88.0,"rank":37},{"name":"Tejas T S","usn":"1SI24CS187","gender":"Male","value":9.45,"pct":87.0,"rank":38},{"name":"Shreya Shivanand Itagi","usn":"1SI24CS167","gender":"Female","value":9.45,"pct":87.0,"rank":38},{"name":"Rabiya Nida","usn":"1SI24CS135","gender":"Female","value":9.45,"pct":87.0,"rank":38},{"name":"Gnanavi S U","usn":"1SI24CS059","gender":"Female","value":9.45,"pct":87.0,"rank":38},{"name":"Kana Vahini","usn":"1SI24CS075","gender":"Female","value":9.45,"pct":87.0,"rank":38},{"name":"Darshan K M","usn":"1SI24CS043","gender":"Male","value":9.45,"pct":87.0,"rank":38},{"name":"Aditya Kumar","usn":"1SI24CS006","gender":"Male","value":9.45,"pct":87.0,"rank":38},{"name":"Thanushree S","usn":"1SI24CS192","gender":"Female","value":9.4,"pct":86.5,"rank":45},{"name":"Gaganashree K","usn":"1SI24CS057","gender":"Female","value":9.4,"pct":86.5,"rank":45},{"name":"B Jagadeshwar Reddy","usn":"1SI24CS028","gender":"Male","value":9.4,"pct":86.5,"rank":45},{"name":"Mukundan P","usn":"1SI24CS106","gender":"Male","value":9.4,"pct":86.5,"rank":45},{"name":"Reethu S","usn":"1SI24CS142","gender":"Female","value":9.35,"pct":86.0,"rank":49},{"name":"Amulya P","usn":"1SI24CS400","gender":"Female","value":9.35,"pct":86.0,"rank":49},{"name":"Jubilee .","usn":"1SI24CS071","gender":"Female","value":9.3,"pct":85.5,"rank":51},{"name":"Ankit Kumar","usn":"1SI24CS016","gender":"Male","value":9.3,"pct":85.5,"rank":51},{"name":"Aadil Majeed","usn":"1SI24CS001","gender":"Male","value":9.3,"pct":85.5,"rank":51},{"name":"Aditya Pramod Patil","usn":"1SI24CS007","gender":"Male","value":9.3,"pct":85.5,"rank":51},{"name":"Nongthombam Sanathoi Singh","usn":"1SI24CS120","gender":"Male","value":9.3,"pct":85.5,"rank":51},{"name":"Nagamma V","usn":"1SI24CS108","gender":"Female","value":9.3,"pct":85.5,"rank":51},{"name":"Prajwal Sangappa Katageri","usn":"1SI24CS124","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Saroj Ghosh","usn":"1SI24CS155","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Kiranagouda Venkanagouda Nadamani","usn":"1SI24CS086","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Kishan G C","usn":"1SI24CS087","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Disha R","usn":"1SI24CS053","gender":"Female","value":9.25,"pct":85.0,"rank":57},{"name":"Karthik S","usn":"1SI24CS077","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Sayan Kumar","usn":"1SI24CS158","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Vishal Kumar Tiwary","usn":"1SI24CS207","gender":"Male","value":9.25,"pct":85.0,"rank":57},{"name":"Varsha N G","usn":"1SI24CS198","gender":"Female","value":9.25,"pct":85.0,"rank":57},{"name":"Dhanush S","usn":"1SI24CS052","gender":"Male","value":9.2,"pct":84.5,"rank":66},{"name":"D S Lavanya","usn":"1SI24CS041","gender":"Female","value":9.2,"pct":84.5,"rank":66},{"name":"Geeta Siddappa Saunshi","usn":"1SI24CS058","gender":"Female","value":9.2,"pct":84.5,"rank":66},{"name":"Namitha K","usn":"1SI24CS112","gender":"Female","value":9.15,"pct":84.0,"rank":69},{"name":"Trisha Roshan","usn":"1SI24CS195","gender":"Female","value":9.1,"pct":83.5,"rank":70},{"name":"Vivek Gowda B","usn":"1SI24CS208","gender":"Male","value":9.1,"pct":83.5,"rank":70},{"name":"Munnur Someshwar","usn":"1SI24CS107","gender":"Male","value":9.1,"pct":83.5,"rank":70},{"name":"Thilak K R","usn":"1SI24CS193","gender":"Male","value":9.1,"pct":83.5,"rank":70},{"name":"Kavin G","usn":"1SI24CS078","gender":"Male","value":9.1,"pct":83.5,"rank":70},{"name":"Badagi Lokamurthy","usn":"1SI24CS030","gender":"Male","value":9.1,"pct":83.5,"rank":70},{"name":"Snehalatha .","usn":"1SI24CS174","gender":"Female","value":9.05,"pct":83.0,"rank":76},{"name":"Pooja M","usn":"1SI24CS122","gender":"Female","value":9.05,"pct":83.0,"rank":76},{"name":"Shrisha M","usn":"1SI24CS169","gender":"Female","value":9.05,"pct":83.0,"rank":76},{"name":"Rudranarayan Satapathy","usn":"1SI24CS145","gender":"Male","value":9.05,"pct":83.0,"rank":76},{"name":"Sandesh Lakshman Borakar","usn":"1SI24CS150","gender":"Male","value":9.05,"pct":83.0,"rank":76},{"name":"Tejesh C","usn":"1SI24CS189","gender":"Male","value":9.05,"pct":83.0,"rank":76},{"name":"Khutijal Kubra K","usn":"1SI24CS084","gender":"Female","value":9.05,"pct":83.0,"rank":76},{"name":"Nagasamprathi N","usn":"1SI24CS110","gender":"Female","value":9.0,"pct":82.5,"rank":83},{"name":"Bhumika B R","usn":"1SI24CS034","gender":"Female","value":9.0,"pct":82.5,"rank":83},{"name":"Amogh V Hathwar","usn":"1SI24CS011","gender":"Male","value":9.0,"pct":82.5,"rank":83},{"name":"Anusha Patil","usn":"1SI24CS020","gender":"Female","value":8.95,"pct":82.0,"rank":86},{"name":"Babul Kumar","usn":"1SI24CS029","gender":"Male","value":8.95,"pct":82.0,"rank":86},{"name":"Aryan Kumar Gupta","usn":"1SI24CS023","gender":"Male","value":8.95,"pct":82.0,"rank":86},{"name":"K Chandra Shekar Reddy","usn":"1SI24CS074","gender":"Male","value":8.95,"pct":82.0,"rank":86},{"name":"Hemashree Dn","usn":"1SI24CS069","gender":"Female","value":8.95,"pct":82.0,"rank":86},{"name":"S Kapil Jain","usn":"1SI24CS146","gender":"Male","value":8.95,"pct":82.0,"rank":86},{"name":"Pavan K R","usn":"1SI24CS413","gender":"Male","value":8.94,"pct":81.9,"rank":92},{"name":"Shubham Patil","usn":"1SI24CS170","gender":"Male","value":8.9,"pct":81.5,"rank":93},{"name":"Sangamesh Beerappa Konkani","usn":"1SI24CS151","gender":"Male","value":8.9,"pct":81.5,"rank":93},{"name":"Shobha G","usn":"1SI24CS165","gender":"Female","value":8.9,"pct":81.5,"rank":93},{"name":"Vikas Sharma","usn":"1SI24CS203","gender":"Male","value":8.9,"pct":81.5,"rank":93},{"name":"Nitya Jain","usn":"1SI24CS119","gender":"Female","value":8.9,"pct":81.5,"rank":93},{"name":"Shiven Kumar","usn":"1SI24CS164","gender":"Male","value":8.9,"pct":81.5,"rank":93},{"name":"Raghav T L","usn":"1SI24CS414","gender":"Male","value":8.88,"pct":81.3,"rank":99},{"name":"Punith N S","usn":"1SI24CS133","gender":"Male","value":8.85,"pct":81.0,"rank":100},{"name":"Rakshitha B","usn":"1SI24CS137","gender":"Female","value":8.85,"pct":81.0,"rank":100},{"name":"Harshitha .","usn":"1SI24CS405","gender":"Female","value":8.76,"pct":80.1,"rank":102},{"name":"Aditya Sharma","usn":"1SI24CS008","gender":"Male","value":8.75,"pct":80.0,"rank":103},{"name":"Rishav Kashyap","usn":"1SI24CS144","gender":"Male","value":8.75,"pct":80.0,"rank":103},{"name":"Sahil More","usn":"1SI24CS148","gender":"Male","value":8.75,"pct":80.0,"rank":103},{"name":"Reddy Rahul Reddy","usn":"1SI24CS141","gender":"Male","value":8.75,"pct":80.0,"rank":103},{"name":"G Chinmai","usn":"1SI24CS054","gender":"Male","value":8.7,"pct":79.5,"rank":107},{"name":"Apoorva Bhandari","usn":"1SI24CS021","gender":"Female","value":8.7,"pct":79.5,"rank":107},{"name":"Aishwarya T","usn":"1SI24CS009","gender":"Female","value":8.7,"pct":79.5,"rank":107},{"name":"Vidya R","usn":"1SI24CS201","gender":"Female","value":8.7,"pct":79.5,"rank":107},{"name":"Ayush Kumar Singh","usn":"1SI24CS026","gender":"Male","value":8.7,"pct":79.5,"rank":107},{"name":"Debadatta Ray","usn":"1SI24CS045","gender":"Male","value":8.65,"pct":79.0,"rank":112},{"name":"Adarsh Raj","usn":"1SI24CS005","gender":"Male","value":8.65,"pct":79.0,"rank":112},{"name":"H Ruchitha Reddy","usn":"1SI24CS062","gender":"Female","value":8.6,"pct":78.5,"rank":114},{"name":"Nehal Shetty D S","usn":"1SI24CS115","gender":"Female","value":8.6,"pct":78.5,"rank":114},{"name":"Pruthviraj Patil","usn":"1SI24CS132","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Preetham A K","usn":"1SI24CS128","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Dhanush Mr","usn":"1SI24CS051","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Abhinav Raj","usn":"1SI24CS004","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Madhurya R","usn":"1SI24CS094","gender":"Female","value":8.55,"pct":78.0,"rank":116},{"name":"Sanjay H D","usn":"1SI24CS154","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Lokesh .","usn":"1SI24CS093","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"Vedanth J S","usn":"1SI24CS200","gender":"Male","value":8.55,"pct":78.0,"rank":116},{"name":"G V Nithya Sree","usn":"1SI24CS056","gender":"Female","value":8.55,"pct":78.0,"rank":116},{"name":"Susmitha Samvardhini L","usn":"1SI24CS183","gender":"Female","value":8.5,"pct":77.5,"rank":125},{"name":"Harshit Raj","usn":"1SI24CS065","gender":"Male","value":8.5,"pct":77.5,"rank":125},{"name":"Suyash Pandey","usn":"1SI24CS184","gender":"Male","value":8.5,"pct":77.5,"rank":125},{"name":"Monish K C","usn":"1SI24CS103","gender":"Male","value":8.45,"pct":77.0,"rank":128},{"name":"Manish Kumar V K","usn":"1SI24CS096","gender":"Male","value":8.45,"pct":77.0,"rank":128},{"name":"Kethari Mokshith Reddy","usn":"1SI24CS081","gender":"Male","value":8.45,"pct":77.0,"rank":128},{"name":"Dada Kalandar","usn":"1SI24CS042","gender":"Male","value":8.45,"pct":77.0,"rank":128},{"name":"Skarma Lamo","usn":"1SI24CS172","gender":"Female","value":8.4,"pct":76.5,"rank":132},{"name":"Ayush Agrawal","usn":"1SI24CS025","gender":"Male","value":8.4,"pct":76.5,"rank":132},{"name":"Anurag A Aralimarad","usn":"1SI24CS019","gender":"Male","value":8.4,"pct":76.5,"rank":132},{"name":"Modithya R","usn":"1SI24CS099","gender":"Male","value":8.38,"pct":76.3,"rank":135},{"name":"Shamitha H S","usn":"1SI24CS161","gender":"Female","value":8.35,"pct":76.0,"rank":136},{"name":"Ankitha R","usn":"1SI24CS017","gender":"Female","value":8.35,"pct":76.0,"rank":136},{"name":"Rahul Dadimana Kshetri","usn":"1SI24CS136","gender":"Male","value":8.35,"pct":76.0,"rank":136},{"name":"Abdullah Saad Sharief","usn":"1SI24CS003","gender":"Male","value":8.3,"pct":75.5,"rank":139},{"name":"Sadiq Barakatali Kolakar","usn":"1SI24CS147","gender":"Male","value":8.3,"pct":75.5,"rank":139},{"name":"Gowri S P","usn":"1SI24CS061","gender":"Female","value":8.3,"pct":75.5,"rank":139},{"name":"Smitha G P","usn":"1SI24CS173","gender":"Female","value":8.29,"pct":75.4,"rank":142},{"name":"Mohini Babasaheb Awate","usn":"1SI24CS410","gender":"Female","value":8.29,"pct":75.4,"rank":142},{"name":"Vinay K N","usn":"1SI24CS417","gender":"Male","value":8.25,"pct":75.0,"rank":144},{"name":"Pagadala Jahnavi","usn":"1SI24CS121","gender":"Female","value":8.25,"pct":75.0,"rank":144},{"name":"Jatin Raj","usn":"1SI24CS070","gender":"Male","value":8.25,"pct":75.0,"rank":144},{"name":"Sharadhi N","usn":"1SI24CS163","gender":"Female","value":8.25,"pct":75.0,"rank":144},{"name":"Deepak Purohit","usn":"1SI24CS046","gender":"Male","value":8.15,"pct":74.0,"rank":148},{"name":"Kunal Vardiya","usn":"1SI24CS089","gender":"Male","value":8.15,"pct":74.0,"rank":148},{"name":"Sushanth A","usn":"1SI24CS182","gender":"Male","value":8.15,"pct":74.0,"rank":148},{"name":"Tejaswini B M","usn":"1SI24CS188","gender":"Female","value":8.15,"pct":74.0,"rank":148},{"name":"Vikas .","usn":"1SI24CS202","gender":"Male","value":8.15,"pct":74.0,"rank":148},{"name":"Nithyashree P L","usn":"1SI24CS412","gender":"Female","value":8.12,"pct":73.7,"rank":153},{"name":"Kavana H P","usn":"1SI24CS409","gender":"Female","value":8.12,"pct":73.7,"rank":153},{"name":"Prathiksha H","usn":"1SI24CS127","gender":"Female","value":8.1,"pct":73.5,"rank":155},{"name":"K Basavaraju","usn":"1SI24CS073","gender":"Male","value":8.1,"pct":73.5,"rank":155},{"name":"Khade Soham Rajendra","usn":"1SI24CS082","gender":"Male","value":8.1,"pct":73.5,"rank":155},{"name":"Shreshta T P","usn":"1SI24CS166","gender":"Female","value":8.1,"pct":73.5,"rank":155},{"name":"Gowri B V","usn":"1SI24CS060","gender":"Female","value":8.0,"pct":72.5,"rank":159},{"name":"Nagshankre Ashish Shivaraj","usn":"1SI24CS111","gender":"Male","value":8.0,"pct":72.5,"rank":159},{"name":"More Rutuja","usn":"1SI24CS104","gender":"Female","value":8.0,"pct":72.5,"rank":159},{"name":"Chirag P","usn":"1SI24CS038","gender":"Male","value":7.95,"pct":72.0,"rank":162},{"name":"Nagesh Kumar P","usn":"1SI24CS411","gender":"Male","value":7.94,"pct":71.9,"rank":163},{"name":"Darshan G M","usn":"1SI24CS404","gender":"Male","value":7.94,"pct":71.9,"rank":163},{"name":"Supritha S T","usn":"1SI24CS180","gender":"Female","value":7.91,"pct":71.6,"rank":165},{"name":"Mohit Dhakad","usn":"1SI24CS101","gender":"Male","value":7.9,"pct":71.5,"rank":166},{"name":"Nanditha L M","usn":"1SI24CS113","gender":"Female","value":7.9,"pct":71.5,"rank":166},{"name":"Badri Vishal","usn":"1SI24CS031","gender":"Male","value":7.9,"pct":71.5,"rank":166},{"name":"Ankit S Nidavani","usn":"1SI24CS401","gender":"Male","value":7.88,"pct":71.3,"rank":169},{"name":"Yashaswini A","usn":"1SI24CS211","gender":"Female","value":7.85,"pct":71.0,"rank":170},{"name":"Srushti Siddaram Balulagidad","usn":"1SI24CS177","gender":"Female","value":7.85,"pct":71.0,"rank":170},{"name":"Chinmayi T M","usn":"1SI24CS403","gender":"Female","value":7.82,"pct":70.7,"rank":172},{"name":"Vaishnavi Raviraj Kumbhar","usn":"1SI24CS416","gender":"Female","value":7.82,"pct":70.7,"rank":172},{"name":"Manojna S","usn":"1SI24CS098","gender":"Female","value":7.8,"pct":70.5,"rank":174},{"name":"Tushar A Kumar","usn":"1SI24CS196","gender":"Male","value":7.8,"pct":70.5,"rank":174},{"name":"Chiranth B V","usn":"1SI24CS040","gender":"Male","value":7.8,"pct":70.5,"rank":174},{"name":"Harsh Kumar Singh","usn":"1SI24CS064","gender":"Male","value":7.75,"pct":70.0,"rank":177},{"name":"Arnav Singh","usn":"1SI24CS022","gender":"Male","value":7.75,"pct":70.0,"rank":177},{"name":"Havyas Dore","usn":"1SI24CS067","gender":"Male","value":7.71,"pct":69.6,"rank":179},{"name":"Sanjana V Rangarer","usn":"1SI24CS153","gender":"Female","value":7.7,"pct":69.5,"rank":180},{"name":"Charan B S","usn":"1SI24CS037","gender":"Male","value":7.65,"pct":69.0,"rank":181},{"name":"Thanuja S","usn":"1SI24CS190","gender":"Female","value":7.6,"pct":68.5,"rank":182},{"name":"Pragna M J","usn":"1SI24CS123","gender":"Female","value":7.6,"pct":68.5,"rank":182},{"name":"Kalekar Samarth Shashikant","usn":"1SI24CS408","gender":"Male","value":7.53,"pct":67.8,"rank":184},{"name":"Honnushree B M","usn":"1SI24CS406","gender":"Female","value":7.53,"pct":67.8,"rank":184},{"name":"Tanishq Gautam","usn":"1SI24CS186","gender":"Male","value":7.4,"pct":66.5,"rank":186},{"name":"Hemanth Swamy C O","usn":"1SI24CS068","gender":"Male","value":7.4,"pct":66.5,"rank":186},{"name":"Bhanu S R","usn":"1SI24CS032","gender":"Female","value":7.22,"pct":64.7,"rank":188},{"name":"Nisarga M","usn":"1SI24CS117","gender":"Female","value":7.15,"pct":64.0,"rank":189},{"name":"Narendra Kumar Yadav","usn":"1SI24CS114","gender":"Male","value":7.15,"pct":64.0,"rank":189},{"name":"Anant Singh","usn":"1SI24CS014","gender":"Male","value":7.1,"pct":63.5,"rank":191},{"name":"Deepankar Raj","usn":"1SI24CS047","gender":"Male","value":6.9,"pct":61.5,"rank":192},{"name":"Prerit Shekhar","usn":"1SI24CS130","gender":"Male","value":6.88,"pct":61.3,"rank":193},{"name":"Bhagyashree .","usn":"1SI24CS402","gender":"Female","value":6.12,"pct":53.7,"rank":194},{"name":"Harshitha M C","usn":"1SI24CS066","gender":"Female","value":6.08,"pct":53.3,"rank":195},{"name":"Tomthilnganba Soraisham","usn":"1SI24CS194","gender":"Male","value":6.0,"pct":52.5,"rank":196},{"name":"Nimit Mishra","usn":"1SI24CS116","gender":"Male","value":5.85,"pct":51.0,"rank":197},{"name":"Tanay Kumar","usn":"1SI24CS185","gender":"Male","value":5.28,"pct":45.3,"rank":198},{"name":"Rakshitha R","usn":"1SI24CS138","gender":"Female","value":5.25,"pct":45.0,"rank":199},{"name":"Kruthi R","usn":"1SI24CS088","gender":"Female","value":5.1,"pct":43.5,"rank":200},{"name":"Muhammad Ayaan Atiq","usn":"1SI24CS105","gender":"Male","value":5.1,"pct":43.5,"rank":200},{"name":"Suma K S","usn":"1SI24CS415","gender":"Female","value":4.94,"pct":41.9,"rank":202},{"name":"Manoj H J","usn":"1SI24CS097","gender":"Male","value":4.67,"pct":39.2,"rank":203},{"name":"Varun M D","usn":"1SI24CS199","gender":"Male","value":4.59,"pct":38.4,"rank":204},{"name":"Lohith Kumar K","usn":"1SI24CS092","gender":"Male","value":4.54,"pct":37.9,"rank":205},{"name":"Aishwarya V","usn":"1SI24CS010","gender":"Female","value":4.15,"pct":34.0,"rank":206},{"name":"Rakshitha S","usn":"1SI24CS139","gender":"Female","value":3.05,"pct":23.0,"rank":207},{"name":"Uday N P","usn":"1SI24CS197","gender":"Male","value":2.6,"pct":18.5,"rank":208},{"name":"Vinay V A","usn":"1SI24CS204","gender":"Male","value":2.21,"pct":14.6,"rank":209},{"name":"Junaid Shariff","usn":"1SI24CS072","gender":"Male","value":2.11,"pct":13.6,"rank":210},{"name":"Aadyantha G Nadig","usn":"1SI24CS002","gender":"Male","value":0.35,"pct":-4.0,"rank":211},{"name":"B Bhuvan Gowda","usn":"1SI24CS027","gender":"Male","value":0.23,"pct":-5.2,"rank":212},{"name":"Thanushree P","usn":"1SI24CS191","gender":"Female","value":0.0,"pct":-7.5,"rank":213}],"stats":{"cgpa":{"max":9.95,"min":6.19,"mean":8.64,"median":8.86,"mode":9.05,"std":0.9,"count":213,"mean_pct":78.9},"sgpa":{"max":9.95,"min":0.0,"mean":8.32,"median":8.7,"mode":9.8,"std":1.69,"count":213,"mean_pct":75.7}}};
 
-const CFG = {
-  CHART_H: 320,
-  PAD_TOP: 16,
-  PAD_BOTTOM: 26,
-  BAR_W: 13,
-  GAP: 3,
-  MINI_H: 46,
-};
-CFG.SLOT = CFG.BAR_W + CFG.GAP;
-CFG.PLOT_H = CFG.CHART_H - CFG.PAD_TOP - CFG.PAD_BOTTOM;
+const CHART_H = 320;
+const PAD_TOP = 14;
+const PAD_BOTTOM = 24;
+const BAR_W = 13;
+const GAP = 3;
+const SLOT = BAR_W + GAP;
+const plotH = CHART_H - PAD_TOP - PAD_BOTTOM;
 
-/* Color stops used to build the single continuous SVG gradient
-   that all bars share (positioned by rank, cyan -> red). */
-const COLOR_STOPS = [
-  [0.00, '#22d3ee'],
-  [0.22, '#34d399'],
-  [0.50, '#eab308'],
-  [0.75, '#f97316'],
-  [1.00, '#ef4444'],
-];
-
-/* =========================================================
-   STATE / DOM REFS
-   ========================================================= */
 let current = 'cgpa';
-let renderToken = 0;
+const svg = document.getElementById('chartSvg');
+const axisSvg = document.getElementById('axisSvg');
+const scrollArea = document.getElementById('scrollArea');
+const tooltip = document.getElementById('tooltip');
+const statsRow = document.getElementById('statsRow');
+const chartTitle = document.getElementById('chartTitle');
+const searchBox = document.getElementById('searchBox');
 
-const svg        = document.getElementById('chartSvg');
-const axisSvg     = document.getElementById('axisSvg');
-const miniSvg     = document.getElementById('miniSvg');
-const miniNav     = document.getElementById('miniNav');
-const viewportBox = document.getElementById('viewportBox');
-const scrollArea  = document.getElementById('scrollArea');
-const tooltip     = document.getElementById('tooltip');
-const statsGrid   = document.getElementById('statsGrid');
-const chartTitle  = document.getElementById('chartTitle');
-const searchBox   = document.getElementById('searchBox');
-const btnCGPA     = document.getElementById('btnCGPA');
-const btnSGPA     = document.getElementById('btnSGPA');
-
-/* =========================================================
-   HELPERS
-   ========================================================= */
-function ns(tag){ return document.createElementNS('http://www.w3.org/2000/svg', tag); }
-
-function yFor(value){ return CFG.PAD_TOP + CFG.PLOT_H - (value/10)*CFG.PLOT_H; }
-
-function animateCount(el, target, decimals, suffix){
-  const start = 0;
-  const dur = 900;
-  const t0 = performance.now();
-  function tick(now){
-    const p = Math.min(1,(now-t0)/dur);
-    const eased = 1 - Math.pow(1-p, 3);
-    const val = start + (target-start)*eased;
-    el.textContent = val.toFixed(decimals) + (suffix||'');
-    if(p<1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-/* =========================================================
-   STATISTICS / STAT CARDS
-   ========================================================= */
-const STAT_GRADS = ['var(--grad-cb)','var(--grad-op)','var(--grad-bp)','var(--grad-pp)','var(--grad-cb)','var(--grad-op)'];
-
-function renderStats(key){
-  const s = DATA.stats[key];
-  const label = key.toUpperCase();
-  const cards = [
-    ['Max '+label, s.max, null],
-    ['Min '+label, s.min, null],
-    ['Average '+label, s.mean, s.mean_pct],
-    ['Median '+label, s.median, null],
-    ['Mode '+label, s.mode, null],
-    ['Std Dev', s.std, null],
+function valueColor(v){
+  // 0 -> red, 5 -> amber, 10 -> green (flat, functional palette)
+  const stops = [
+    [0, [192, 57, 43]],
+    [5, [201, 155, 26]],
+    [10, [31, 138, 76]]
   ];
-  statsGrid.innerHTML = cards.map((c,i) => `
-    <div class="stat-card" style="--stat-grad:${STAT_GRADS[i]}">
-      <div class="stat-label">${c[0]}</div>
-      <div class="stat-value mono" data-target="${c[1]}">0.00</div>
-      ${c[2] != null ? `<div class="stat-pct">${c[2].toFixed(1)}%</div>` : ''}
-    </div>
-  `).join('');
-  statsGrid.querySelectorAll('.stat-value').forEach(el=>{
-    animateCount(el, parseFloat(el.dataset.target), 2, '');
-  });
-
-  document.getElementById('metaCount').textContent = s.count;
-  document.getElementById('metaTop').textContent = DATA.stats.cgpa.max.toFixed(2);
-  document.getElementById('metaAvg').textContent = DATA.stats.cgpa.mean.toFixed(2);
+  let a = stops[0], b = stops[stops.length-1];
+  for(let i=0;i<stops.length-1;i++){
+    if(v >= stops[i][0] && v <= stops[i+1][0]){ a = stops[i]; b = stops[i+1]; break; }
+  }
+  const t = (v - a[0]) / (b[0] - a[0] || 1);
+  const c = a[1].map((x,i)=> Math.round(x + (b[1][i]-x)*t));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
 }
 
-/* =========================================================
-   CHART RENDERING
-   ========================================================= */
-function buildGradientDefs(targetSvg, id, width){
-  const defs = ns('defs');
-  const grad = ns('linearGradient');
-  grad.setAttribute('id', id);
-  grad.setAttribute('gradientUnits','userSpaceOnUse');
-  grad.setAttribute('x1','0'); grad.setAttribute('x2', width);
-  grad.setAttribute('y1','0'); grad.setAttribute('y2','0');
-  COLOR_STOPS.forEach(([off,color])=>{
-    const stop = ns('stop');
-    stop.setAttribute('offset', (off*100)+'%');
-    stop.setAttribute('stop-color', color);
-    grad.appendChild(stop);
-  });
-  defs.appendChild(grad);
-  targetSvg.appendChild(defs);
-}
+function ns(tag){ return document.createElementNS('http://www.w3.org/2000/svg', tag); }
 
 function renderAxis(){
   axisSvg.innerHTML = '';
-  axisSvg.setAttribute('width', 36);
+  axisSvg.setAttribute('width', 34);
   for(let v=0; v<=10; v+=2){
-    const y = yFor(v);
+    const y = PAD_TOP + plotH - (v/10)*plotH;
     const t = ns('text');
     t.setAttribute('x', 28);
     t.setAttribute('y', y+4);
     t.setAttribute('text-anchor','end');
-    t.setAttribute('font-size','10.5');
-    t.setAttribute('font-family','JetBrains Mono, monospace');
-    t.setAttribute('fill','#726c92');
+    t.setAttribute('font-size','10');
+    t.setAttribute('fill','#6b6b6f');
     t.textContent = v;
     axisSvg.appendChild(t);
   }
 }
 
-function renderChart(key){
-  const myToken = ++renderToken;
+function renderStats(key){
+  const s = DATA.stats[key];
+  const label = key.toUpperCase();
+  const cards = [
+    ['Max', s.max.toFixed(2), null],
+    ['Min', s.min.toFixed(2), null],
+    ['Average', s.mean.toFixed(2), s.mean_pct.toFixed(1)+'%'],
+    ['Median', s.median.toFixed(2), null],
+    ['Mode', s.mode.toFixed(2), null],
+    ['Std Dev', s.std.toFixed(2), null],
+  ];
+  statsRow.innerHTML = cards.map(c => `
+    <div class="stat-card">
+      <div class="label">${c[0]} ${label}</div>
+      <div class="value">${c[1]}</div>
+      ${c[2] ? `<div class="pct">${c[2]}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function showChart(key){
   current = key;
-  btnCGPA.classList.toggle('active', key==='cgpa');
-  btnCGPA.setAttribute('aria-selected', key==='cgpa');
-  btnSGPA.classList.toggle('active', key==='sgpa');
-  btnSGPA.setAttribute('aria-selected', key==='sgpa');
+  document.getElementById('btnCGPA').classList.toggle('active-cgpa', key==='cgpa');
+  document.getElementById('btnSGPA').classList.toggle('active-sgpa', key==='sgpa');
 
   const records = DATA[key+'_records'];
   const stats = DATA.stats[key];
   const n = records.length;
-  const width = n * CFG.SLOT + 10;
+  const width = n * SLOT + 10;
 
   svg.setAttribute('width', width);
-  svg.setAttribute('height', CFG.CHART_H);
+  svg.setAttribute('height', CHART_H);
   svg.innerHTML = '';
-  svg.setAttribute('role','img');
-  svg.setAttribute('aria-label', `Bar chart of ${label(key)} for ${n} students, ranked best to lowest`);
-
-  buildGradientDefs(svg, 'barGrad', width);
 
   // gridlines
-  const gridFrag = document.createDocumentFragment();
   for(let v=0; v<=10; v+=2){
-    const y = yFor(v);
+    const y = PAD_TOP + plotH - (v/10)*plotH;
     const line = ns('line');
     line.setAttribute('x1',0); line.setAttribute('x2', width);
     line.setAttribute('y1',y); line.setAttribute('y2',y);
-    line.setAttribute('stroke','rgba(255,255,255,0.06)'); line.setAttribute('stroke-width','1');
-    gridFrag.appendChild(line);
+    line.setAttribute('stroke','#eee'); line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
   }
-  svg.appendChild(gridFrag);
 
   // bars
-  const barFrag = document.createDocumentFragment();
-  const barEls = new Array(n);
   records.forEach((r,i)=>{
-    const x = i*CFG.SLOT + 5;
-    const h = Math.max((r.value/10)*CFG.PLOT_H, 1);
-    const y = yFor(r.value);
+    const x = i*SLOT + 5;
+    const h = (r.value/10)*plotH;
+    const y = PAD_TOP + plotH - h;
     const rect = ns('rect');
     rect.setAttribute('x', x);
-    rect.setAttribute('y', CFG.PAD_TOP + CFG.PLOT_H); // start collapsed for entrance animation
-    rect.setAttribute('width', CFG.BAR_W);
-    rect.setAttribute('height', 0);
-    rect.setAttribute('rx', 4);
-    rect.setAttribute('fill', 'url(#barGrad)');
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', BAR_W);
+    rect.setAttribute('height', Math.max(h,1));
+    rect.setAttribute('fill', valueColor(r.value));
     rect.setAttribute('class','bar');
     rect.dataset.idx = i;
-    rect.tabIndex = -1;
     rect.addEventListener('mouseenter', (e)=>showTip(e, r));
-    rect.addEventListener('mousemove', moveTip);
+    rect.addEventListener('mousemove', (e)=>moveTip(e));
     rect.addEventListener('mouseleave', hideTip);
     rect.addEventListener('click', (e)=>showTip(e, r));
-    barFrag.appendChild(rect);
-    barEls[i] = {rect, targetY:y, targetH:h};
-  });
-  svg.appendChild(barFrag);
-
-  // entrance animation (staggered via rAF, GPU-friendly attr animation)
-  requestAnimationFrame(()=>{
-    if(myToken !== renderToken) return;
-    barEls.forEach(({rect,targetY,targetH}, i)=>{
-      rect.style.transition = `y 0.5s cubic-bezier(.16,1,.3,1) ${Math.min(i*1.1,260)}ms, height 0.5s cubic-bezier(.16,1,.3,1) ${Math.min(i*1.1,260)}ms`;
-      rect.setAttribute('y', targetY);
-      rect.setAttribute('height', targetH);
-    });
+    svg.appendChild(rect);
   });
 
   // mean/median/mode lines
   const linesDef = [
-    [stats.mean, 'var(--cyan)', '#22d3ee'],
-    [stats.median, 'var(--purple)', '#8b5cf6'],
-    [stats.mode, 'var(--orange)', '#f97316'],
+    [stats.mean, '#2453d1'],
+    [stats.median, '#9333ea'],
+    [stats.mode, '#c08a00'],
   ];
-  const lineFrag = document.createDocumentFragment();
-  linesDef.forEach(entry=>{
-    const val = entry[0], color = entry[2];
-    const y = yFor(val);
+  linesDef.forEach(([val,color])=>{
+    const y = PAD_TOP + plotH - (val/10)*plotH;
     const line = ns('line');
     line.setAttribute('x1',0); line.setAttribute('x2', width);
     line.setAttribute('y1',y); line.setAttribute('y2',y);
     line.setAttribute('stroke',color);
     line.setAttribute('stroke-width','1.5');
-    line.setAttribute('stroke-dasharray','6,5');
-    line.setAttribute('opacity','0.85');
-    lineFrag.appendChild(line);
+    line.setAttribute('stroke-dasharray','5,4');
+    svg.appendChild(line);
   });
-  svg.appendChild(lineFrag);
 
   renderAxis();
   renderStats(key);
-  renderMini(key, width);
-  chartTitle.textContent = `${label(key)} — all ${n} students, ranked best → lowest`;
+  chartTitle.textContent = `${key.toUpperCase()} — all ${n} students, ranked best to lowest`;
   searchBox.value = '';
-  clearHighlight();
   scrollArea.scrollLeft = 0;
-  syncViewport();
 }
 
-function label(key){ return key.toUpperCase(); }
-
-/* =========================================================
-   MINI OVERVIEW / NAVIGATOR
-   ========================================================= */
-function renderMini(key, fullWidth){
-  const records = DATA[key+'_records'];
-  const n = records.length;
-  const navWidth = miniNav.clientWidth || 800;
-  miniSvg.setAttribute('width', navWidth);
-  miniSvg.setAttribute('height', CFG.MINI_H);
-  miniSvg.innerHTML = '';
-  buildGradientDefs(miniSvg, 'miniGrad', navWidth);
-
-  const slot = navWidth / n;
-  const frag = document.createDocumentFragment();
-  records.forEach((r,i)=>{
-    const h = Math.max((r.value/10)*(CFG.MINI_H-6),1);
-    const rect = ns('rect');
-    rect.setAttribute('x', i*slot);
-    rect.setAttribute('y', CFG.MINI_H - h - 3);
-    rect.setAttribute('width', Math.max(slot-0.6,0.6));
-    rect.setAttribute('height', h);
-    rect.setAttribute('fill','url(#miniGrad)');
-    rect.setAttribute('opacity','0.85');
-    frag.appendChild(rect);
-  });
-  miniSvg.appendChild(frag);
-
-  miniNav.dataset.fullWidth = fullWidth;
-  miniNav.dataset.navWidth = navWidth;
-}
-
-function syncViewport(){
-  const fullWidth = parseFloat(miniNav.dataset.fullWidth || svg.getAttribute('width') || 1);
-  const navWidth = parseFloat(miniNav.dataset.navWidth || miniNav.clientWidth || 1);
-  const visibleRatio = Math.min(1, scrollArea.clientWidth / fullWidth);
-  const scrollRatio = fullWidth > scrollArea.clientWidth
-    ? scrollArea.scrollLeft / (fullWidth - scrollArea.clientWidth)
-    : 0;
-  const boxWidth = Math.max(24, visibleRatio * navWidth);
-  const boxLeft = scrollRatio * (navWidth - boxWidth);
-  viewportBox.style.width = boxWidth + 'px';
-  viewportBox.style.left = boxLeft + 'px';
-}
-
-let scrollTicking = false;
-scrollArea.addEventListener('scroll', ()=>{
-  if(scrollTicking) return;
-  scrollTicking = true;
-  requestAnimationFrame(()=>{ syncViewport(); scrollTicking = false; });
-}, {passive:true});
-
-function miniNavToScroll(clientX){
-  const rect = miniNav.getBoundingClientRect();
-  const navWidth = parseFloat(miniNav.dataset.navWidth || rect.width);
-  const fullWidth = parseFloat(miniNav.dataset.fullWidth || svg.getAttribute('width'));
-  const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / navWidth));
-  const target = ratio * (fullWidth - scrollArea.clientWidth);
-  scrollArea.scrollTo({left: Math.max(0,target), behavior:'auto'});
-}
-let miniDragging = false;
-miniNav.addEventListener('mousedown', (e)=>{ miniDragging = true; miniNavToScroll(e.clientX); });
-window.addEventListener('mousemove', (e)=>{ if(miniDragging) miniNavToScroll(e.clientX); }, {passive:true});
-window.addEventListener('mouseup', ()=>{ miniDragging = false; });
-miniNav.addEventListener('touchstart', (e)=>{ if(e.touches[0]) miniNavToScroll(e.touches[0].clientX); }, {passive:true});
-miniNav.addEventListener('touchmove', (e)=>{ if(e.touches[0]) miniNavToScroll(e.touches[0].clientX); }, {passive:true});
-
-window.addEventListener('resize', ()=>{
-  renderMini(current, parseFloat(svg.getAttribute('width')));
-  syncViewport();
-});
-
-/* =========================================================
-   TOOLTIP
-   ========================================================= */
 function showTip(e, r){
-  tooltip.innerHTML = `<b>${escapeHtml(r.name)}</b><br><span class="tt-usn">${r.usn}</span><div class="tt-val">Rank ${r.rank} · ${r.value.toFixed(2)} (${r.pct.toFixed(1)}%)</div>`;
-  tooltip.classList.add('show');
+  tooltip.innerHTML = `<b>${r.name}</b><br>${r.usn}<br>Rank ${r.rank} · ${r.value.toFixed(2)} (${r.pct.toFixed(1)}%)`;
+  tooltip.style.display = 'block';
   moveTip(e);
 }
 function moveTip(e){
-  const pad = 16;
+  const pad = 14;
   let x = e.clientX + pad, y = e.clientY + pad;
-  if(x + 240 > window.innerWidth) x = e.clientX - 240;
-  if(y + 90 > window.innerHeight) y = e.clientY - 100;
+  if(x + 230 > window.innerWidth) x = e.clientX - 230;
   tooltip.style.left = x+'px';
   tooltip.style.top = y+'px';
 }
-function hideTip(){ tooltip.classList.remove('show'); }
-function escapeHtml(str){
-  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
+function hideTip(){ tooltip.style.display = 'none'; }
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
 let searchTimer;
-let lastMatchIdx = -1;
-
 searchBox.addEventListener('input', ()=>{
   clearTimeout(searchTimer);
   searchTimer = setTimeout(runSearch, 60);
 });
-searchBox.addEventListener('keydown', (e)=>{
-  if(e.key === 'Escape'){ searchBox.value=''; runSearch(); searchBox.blur(); }
-});
-
-function clearHighlight(){
-  svg.querySelectorAll('.bar.dim, .bar.match').forEach(b=>b.classList.remove('dim','match'));
-  lastMatchIdx = -1;
-}
 
 function runSearch(){
   const q = searchBox.value.trim().toLowerCase();
   const records = DATA[current+'_records'];
   const bars = svg.querySelectorAll('.bar');
-  if(!q){ clearHighlight(); return; }
-
+  if(!q){
+    bars.forEach(b=>b.classList.remove('dim','match'));
+    return;
+  }
   let firstIdx = -1;
-  let firstRecord = null;
   bars.forEach((b,i)=>{
     const r = records[i];
     const hit = r.name.toLowerCase().includes(q) || r.usn.toLowerCase().includes(q);
     b.classList.toggle('dim', !hit);
     b.classList.toggle('match', hit);
-    if(hit && firstIdx === -1){ firstIdx = i; firstRecord = r; }
+    if(hit && firstIdx === -1) firstIdx = i;
   });
-
-  if(firstIdx !== -1 && firstIdx !== lastMatchIdx){
-    lastMatchIdx = firstIdx;
-    const targetX = firstIdx*CFG.SLOT - scrollArea.clientWidth/2 + CFG.SLOT/2;
+  if(firstIdx !== -1){
+    const targetX = firstIdx*SLOT - scrollArea.clientWidth/2 + SLOT/2;
     scrollArea.scrollTo({left: Math.max(0,targetX), behavior:'smooth'});
-    const rect = bars[firstIdx];
-    const tipEvt = { clientX: rect.getBoundingClientRect().left + rect.getBoundingClientRect().width/2,
-                      clientY: rect.getBoundingClientRect().top };
-    showTip(tipEvt, firstRecord);
-    setTimeout(hideTip, 1600);
   }
 }
 
-/* =========================================================
-   UI WIRING
-   ========================================================= */
-btnCGPA.addEventListener('click', ()=>renderChart('cgpa'));
-btnSGPA.addEventListener('click', ()=>renderChart('sgpa'));
+document.getElementById('btnCGPA').addEventListener('click', ()=>showChart('cgpa'));
+document.getElementById('btnSGPA').addEventListener('click', ()=>showChart('sgpa'));
 
-document.addEventListener('keydown', (e)=>{
-  if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f'){
-    e.preventDefault();
-    searchBox.focus();
-    searchBox.select();
-  }
-});
-
-/* =========================================================
-   INIT
-   ========================================================= */
-renderChart('cgpa');
+showChart('cgpa');
 </script>
 
 </body>

@@ -36,82 +36,75 @@
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
     background:
-      radial-gradient(circle at 8% 0%, rgba(36,83,209,0.14), transparent 40%),
-      radial-gradient(circle at 95% 8%, rgba(214,51,108,0.12), transparent 42%),
-      radial-gradient(circle at 50% 100%, rgba(124,58,237,0.10), transparent 48%),
-      radial-gradient(circle at 100% 100%, rgba(12,155,176,0.10), transparent 40%),
-      linear-gradient(165deg, #f7f9ff 0%, #eef1fb 40%, #eaeffb 70%, #f0f2fa 100%);
+      radial-gradient(circle at 12% 8%, rgba(36,83,209,0.07), transparent 42%),
+      radial-gradient(circle at 88% 92%, rgba(214,51,108,0.06), transparent 45%),
+      linear-gradient(165deg, #f6f8fd 0%, #eef1f8 45%, #eaf0f6 100%);
     background-attachment:fixed;
     background-color:#f2f4f9;
   }
   body::before{
     content:"";
     position:fixed;inset:0;
-    background-image:radial-gradient(rgba(30,30,40,0.06) 1px, transparent 1px);
-    background-size:24px 24px;
-    mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 50%, transparent 100%);
+    background-image:radial-gradient(rgba(30,30,40,0.05) 1px, transparent 1px);
+    background-size:22px 22px;
     pointer-events:none;
     z-index:0;
   }
-  .wrap{max-width:1140px;margin:0 auto;padding:36px 20px 48px;position:relative;z-index:1;}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 16px 40px;position:relative;z-index:1;}
 
-  header{margin-bottom:26px;position:relative;padding-left:14px;}
+  header{margin-bottom:18px;position:relative;padding-left:12px;}
   header::before{
     content:"";position:absolute;left:0;top:2px;bottom:6px;width:4px;border-radius:3px;
     background:linear-gradient(180deg,var(--c1),var(--c2));
   }
-  h1{font-size:23px;font-weight:700;margin:0 0 5px;letter-spacing:-0.015em;}
+  h1{font-size:20px;font-weight:600;margin:0 0 4px;letter-spacing:-0.01em;}
   h1 .accent{color:var(--accent2);}
-  .subtitle{font-size:13.5px;color:var(--muted);}
+  .subtitle{font-size:13px;color:var(--muted);}
 
   .toolbar{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
     align-items:center;
-    margin:22px 0 18px;
+    margin:18px 0 14px;
   }
-  .tabs{display:inline-flex;padding:3px;gap:2px;border:1px solid var(--border);border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(20,20,40,0.05);}
+  .tabs{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(20,20,40,0.05);}
   .tab-btn{
-    appearance:none;border:0;background:transparent;color:var(--muted);
-    padding:7px 18px;font-size:13px;font-weight:600;cursor:pointer;
-    border-radius:7px;
-    transition:background 0.15s ease,color 0.15s ease;
+    appearance:none;border:0;background:var(--bg);color:var(--muted);
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+    border-right:1px solid var(--border);
   }
-  .tab-btn:hover{color:var(--text);}
+  .tab-btn:last-child{border-right:0;}
   .tab-btn.active-cgpa{background:var(--c1);color:#fff;}
   .tab-btn.active-sgpa{background:var(--c2);color:#fff;}
 
   #searchBox{
     flex:1 1 220px;
-    max-width:290px;
-    padding:9px 13px;
+    max-width:280px;
+    padding:8px 12px;
     border:1px solid var(--border);
-    border-radius:9px;
+    border-radius:8px;
     font-size:13px;
     color:var(--text);
     background:#fff;
     box-shadow:0 1px 2px rgba(20,20,40,0.05);
-    transition:border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  #searchBox:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  #searchBox:focus{outline:2px solid var(--accent-soft);border-color:var(--accent);}
 
   .stats-row{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-    gap:10px;
-    margin-bottom:20px;
+    grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+    gap:8px;
+    margin-bottom:16px;
   }
   .stat-card{
     border:1px solid var(--border);
     border-left:3px solid var(--c1);
-    border-radius:9px;
-    padding:10px 12px;
+    border-radius:8px;
+    padding:8px 10px;
     background:#fff;
     box-shadow:0 1px 3px rgba(20,20,40,0.05);
-    transition:transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .stat-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,20,40,0.09);}
   .stat-card:nth-child(1){border-left-color:var(--c4);}
   .stat-card:nth-child(2){border-left-color:var(--c2);}
   .stat-card:nth-child(3){border-left-color:var(--c1);}
@@ -119,15 +112,15 @@
   .stat-card:nth-child(5){border-left-color:var(--c3);}
   .stat-card:nth-child(6){border-left-color:var(--c6);}
   .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
-  .stat-card .value{font-size:17px;font-weight:700;margin-top:2px;}
+  .stat-card .value{font-size:16px;font-weight:700;margin-top:1px;}
   .stat-card .pct{font-size:11px;color:var(--muted);margin-top:1px;}
 
   .chart-card{
     border:1px solid var(--border);
-    border-radius:12px;
+    border-radius:10px;
     background:#fff;
     overflow:hidden;
-    box-shadow:0 4px 16px rgba(20,20,40,0.07);
+    box-shadow:0 2px 10px rgba(20,20,40,0.06);
   }
   .chart-card::before{
     content:"";display:block;height:3px;
@@ -135,7 +128,7 @@
   }
   .chart-head{
     display:flex;justify-content:space-between;align-items:center;
-    padding:13px 16px;border-bottom:1px solid var(--border);
+    padding:10px 14px;border-bottom:1px solid var(--border);
     font-size:12px;color:var(--muted);
   }
   .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;}
@@ -160,7 +153,7 @@
     -webkit-overflow-scrolling:touch;
   }
   svg{display:block;}
-  .bar{cursor:pointer;transition:opacity 0.15s ease;}
+  .bar{cursor:pointer;}
   .bar:hover, .bar.match{stroke:#111;stroke-width:1;}
   .bar.dim{opacity:0.18;}
 
@@ -188,11 +181,96 @@
     .subtitle{font-size:12px;}
     .stat-card .value{font-size:14px;}
   }
+
+  /* ---- Lock screen ---- */
+  #lockScreen{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(36,83,209,0.08), transparent 42%),
+      radial-gradient(circle at 88% 92%, rgba(214,51,108,0.07), transparent 45%),
+      linear-gradient(165deg, #f6f8fd 0%, #eef1f8 45%, #eaf0f6 100%);
+    padding:20px;
+  }
+  .lock-card{
+    width:100%;max-width:340px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(20,20,40,0.09);
+    padding:28px 26px 24px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .lock-card::before{
+    content:"";display:block;height:3px;
+    position:absolute;top:0;left:0;right:0;
+    background:linear-gradient(90deg,var(--c1),var(--c5),var(--c2));
+  }
+  .lock-icon{
+    width:38px;height:38px;margin:6px auto 14px;
+    border-radius:10px;
+    background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lock-icon svg{width:18px;height:18px;stroke:var(--accent);}
+  .lock-title{font-size:16px;font-weight:600;margin:0 0 4px;letter-spacing:-0.01em;}
+  .lock-subtitle{font-size:12.5px;color:var(--muted);margin:0 0 18px;line-height:1.45;}
+  #lockForm{display:flex;flex-direction:column;gap:10px;}
+  #lockPassword{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:14px;
+    color:var(--text);
+    background:var(--bg-alt);
+    text-align:center;
+    letter-spacing:0.04em;
+  }
+  #lockPassword:focus{outline:2px solid var(--accent-soft);border-color:var(--accent);background:#fff;}
+  #lockSubmit{
+    appearance:none;border:0;border-radius:8px;
+    background:var(--accent);color:#fff;
+    padding:10px 12px;font-size:13.5px;font-weight:600;
+    cursor:pointer;
+  }
+  #lockSubmit:hover{background:#1c3fa8;}
+  #lockError{
+    font-size:12px;color:var(--bad);min-height:16px;margin-top:2px;
+  }
+  .lock-card.shake{animation:shake 0.35s;}
+  @keyframes shake{
+    10%,90%{transform:translateX(-1px);}
+    20%,80%{transform:translateX(2px);}
+    30%,50%,70%{transform:translateX(-4px);}
+    40%,60%{transform:translateX(4px);}
+  }
+  #dashboard{display:none;}
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<div id="lockScreen">
+  <div class="lock-card" id="lockCard">
+    <div class="lock-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="11" width="16" height="9" rx="2"></rect>
+        <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+      </svg>
+    </div>
+    <div class="lock-title">Private Results</div>
+    <div class="lock-subtitle">This page contains student results. Enter the access password to continue.</div>
+    <form id="lockForm">
+      <input type="password" id="lockPassword" placeholder="Password" autocomplete="off" autofocus>
+      <button type="submit" id="lockSubmit">Unlock</button>
+      <div id="lockError"></div>
+    </form>
+  </div>
+</div>
+
+<div class="wrap" id="dashboard">
   <header>
     <h1>SIT Tumkur — CSE 2024 Batch, <span class="accent">Semester 4</span> Results</h1>
     <div class="subtitle">213 students · tap or hover a bar for name, USN, rank and score</div>
@@ -417,6 +495,54 @@ document.getElementById('btnCGPA').addEventListener('click', ()=>showChart('cgpa
 document.getElementById('btnSGPA').addEventListener('click', ()=>showChart('sgpa'));
 
 showChart('cgpa');
+</script>
+
+<script>
+(function(){
+  // SHA-256 hash of the access password (not stored in plaintext in source).
+  const PASS_HASH = '02edbd4651aa0b17f80ace09648c6f9aca5fc948b5cba54eba856b0798c5cd57';
+  const SESSION_KEY = 'sit_gpa_unlocked';
+
+  const lockScreen = document.getElementById('lockScreen');
+  const lockCard = document.getElementById('lockCard');
+  const lockForm = document.getElementById('lockForm');
+  const lockPassword = document.getElementById('lockPassword');
+  const lockError = document.getElementById('lockError');
+  const dashboard = document.getElementById('dashboard');
+
+  async function sha256(text){
+    const enc = new TextEncoder().encode(text);
+    const buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function unlock(){
+    lockScreen.style.display = 'none';
+    dashboard.style.display = 'block';
+  }
+
+  // Stay unlocked for the rest of this browser tab session only.
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    unlock();
+  }
+
+  lockForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const entered = lockPassword.value;
+    const hash = await sha256(entered);
+    if (hash === PASS_HASH) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      unlock();
+    } else {
+      lockError.textContent = 'Incorrect password. Try again.';
+      lockPassword.value = '';
+      lockPassword.focus();
+      lockCard.classList.remove('shake');
+      void lockCard.offsetWidth; // restart animation
+      lockCard.classList.add('shake');
+    }
+  });
+})();
 </script>
 
 </body>
